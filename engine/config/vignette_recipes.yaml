@@ -1,0 +1,28 @@
+# vignette_recipes.yaml — exp14 谈判 vignette 的三步配方序列(曹杨,state × resident 谈判)
+# 叙事:v1 政府主导初案 → 居民方反对(高度重分配削工人新村排屋 + 600m 塔失度)→
+#       v2 冻结居民肌理 + 塔降尺度 → 共享方要求把地面还给公众 → v3 加 open_ground。
+# 每一步与上一步的 diff 就是一条谈判记录;fingerprint 逐步变化 = 可量测的协商轨迹。
+
+vignette_v1_proposal:
+  label: v1 政府初案(state_led 原配方)
+  desc: 与发布版 state_led 完全相同,作为谈判起点。
+  steps:
+    - {op: weight_height, weights: {state: 1.8, developer: 0.8, resident: 0.85, unknown: 0.9}, mode: conserve}
+    - {op: concentrate, center: state_centroid, reach_frac: 0.18, state_boost: 2.0, cap_m: 600}
+
+vignette_v2_resident_counter:
+  label: v2 居民反对后的修订
+  desc: freeze(resident) 保工人新村肌理;resident 权重回 1.0(不再削);塔 cap 600→150、reach 收窄。
+  steps:
+    - {op: freeze, who: [resident]}
+    - {op: weight_height, weights: {state: 1.6, developer: 0.8, resident: 1.0, unknown: 0.9}, mode: conserve}
+    - {op: concentrate, center: state_centroid, reach_frac: 0.12, state_boost: 1.6, cap_m: 150}
+
+vignette_v3_shared_ground:
+  label: v3 共享方加入后的终案
+  desc: v2 基础上,state/developer 缩 footprint 释放共享地面;高度补偿被 150m cap 拦截,守恒不成立——代价入账。
+  steps:
+    - {op: freeze, who: [resident]}
+    - {op: weight_height, weights: {state: 1.6, developer: 0.8, resident: 1.0, unknown: 0.9}, mode: conserve}
+    - {op: concentrate, center: state_centroid, reach_frac: 0.12, state_boost: 1.6, cap_m: 150}
+    - {op: open_ground, target: [state, developer], ratio: 0.4, cap_m: 150}

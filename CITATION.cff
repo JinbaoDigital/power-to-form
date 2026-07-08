@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite the manuscript and this package."
+title: "Power-to-Form: a stakeholder-power shape grammar (reproducibility package)"
+authors:
+  - family-names: Zhong
+    given-names: Jinbao
+    affiliation: "Institute of Architecture, National Yang Ming Chiao Tung University (NYCU)"
+  - family-names: Hou
+    given-names: June-Hao
+    affiliation: "Institute of Architecture, National Yang Ming Chiao Tung University (NYCU)"
+year: 2026
+license: MIT
+keywords: [urban morphology, shape grammar, stakeholder power, computational design, generative design]
+references:
+  - type: article
+    title: "Enhanced mapping of essential urban land use categories in China (EULUC-China 2.0): integrating multimodal deep learning with multisource geospatial data"
+    authors:
+      - family-names: Li
+        given-names: Ziming
+      - family-names: Chen
+        given-names: Bin
+    year: 2025
+    doi: 10.1016/j.scib.2025.07.006

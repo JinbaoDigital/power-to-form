@@ -1,0 +1,62 @@
+[
+ {
+  "frac": 0.3,
+  "seed": 0,
+  "dev_signature_5of5": true,
+  "rho_resident": -0.9,
+  "rho_developer": 0.4,
+  "selectivity": false,
+  "state_maxdev_pct": 4.6,
+  "state_is_min_deviation": true
+ },
+ {
+  "frac": 0.3,
+  "seed": 1,
+  "dev_signature_5of5": true,
+  "rho_resident": -0.8,
+  "rho_developer": 0.4,
+  "selectivity": false,
+  "state_maxdev_pct": 4.6,
+  "state_is_min_deviation": true
+ },
+ {
+  "frac": 0.3,
+  "seed": 2,
+  "dev_signature_5of5": true,
+  "rho_resident": -0.9,
+  "rho_developer": 0.4,
+  "selectivity": false,
+  "state_maxdev_pct": 4.6,
+  "state_is_min_deviation": true
+ },
+ {
+  "frac": 0.6,
+  "seed": 0,
+  "dev_signature_5of5": true,
+  "rho_resident": -0.9,
+  "rho_developer": -0.7,
+  "selectivity": false,
+  "state_maxdev_pct": 4.6,
+  "state_is_min_deviation": true
+ },
+ {
+  "frac": 0.6,
+  "seed": 1,
+  "dev_signature_5of5": true,
+  "rho_resident": -0.9,
+  "rho_developer": -0.6,
+  "selectivity": false,
+  "state_maxdev_pct": 4.6,
+  "state_is_min_deviation": true
+ },
+ {
+  "frac": 0.6,
+  "seed": 2,
+  "dev_signature_5of5": true,
+  "rho_resident": -0.9,
+  "rho_developer": -0.6,
+  "selectivity": false,
+  "state_maxdev_pct": 4.7,
+  "state_is_min_deviation": true
+ }
+]

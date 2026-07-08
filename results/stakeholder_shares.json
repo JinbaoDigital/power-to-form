@@ -1,0 +1,62 @@
+{
+ "caoyang": {
+  "n": 1072,
+  "hmed": 30.0,
+  "cnt_state": 0.082,
+  "gfa_state": 0.111,
+  "cnt_developer": 0.103,
+  "gfa_developer": 0.207,
+  "cnt_resident": 0.809,
+  "gfa_resident": 0.681,
+  "cnt_unknown": 0.007,
+  "gfa_unknown": 0.001
+ },
+ "dapuqiao": {
+  "n": 785,
+  "hmed": 24.0,
+  "cnt_state": 0.124,
+  "gfa_state": 0.159,
+  "cnt_developer": 0.239,
+  "gfa_developer": 0.356,
+  "cnt_resident": 0.617,
+  "gfa_resident": 0.484,
+  "cnt_unknown": 0.02,
+  "gfa_unknown": 0.002
+ },
+ "laoximen": {
+  "n": 923,
+  "hmed": 18.0,
+  "cnt_state": 0.086,
+  "gfa_state": 0.143,
+  "cnt_developer": 0.09,
+  "gfa_developer": 0.264,
+  "cnt_resident": 0.798,
+  "gfa_resident": 0.589,
+  "cnt_unknown": 0.026,
+  "gfa_unknown": 0.003
+ },
+ "yuyuan": {
+  "n": 819,
+  "hmed": 18.0,
+  "cnt_state": 0.079,
+  "gfa_state": 0.125,
+  "cnt_developer": 0.223,
+  "gfa_developer": 0.363,
+  "cnt_resident": 0.683,
+  "gfa_resident": 0.509,
+  "cnt_unknown": 0.015,
+  "gfa_unknown": 0.003
+ },
+ "lujiazui": {
+  "n": 1849,
+  "hmed": 30.0,
+  "cnt_state": 0.124,
+  "gfa_state": 0.068,
+  "cnt_developer": 0.241,
+  "gfa_developer": 0.654,
+  "cnt_resident": 0.626,
+  "gfa_resident": 0.275,
+  "cnt_unknown": 0.008,
+  "gfa_unknown": 0.003
+ }
+}

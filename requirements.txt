@@ -1,0 +1,17 @@
+# Core geospatial + numeric stack (versions tested; >= for flexibility)
+numpy>=1.24
+pandas>=2.0
+geopandas>=1.0
+pyogrio>=0.7
+shapely>=2.0
+pyproj>=3.5
+pyarrow>=14
+pyyaml>=6.0
+matplotlib>=3.7
+scipy>=1.10
+diptest>=0.7
+# optional: figure export / satellite basemap / docx build
+contextily>=1.4   # only for render.py satellite context (fig4/3D)
+python-docx>=1.1  # only for paper/build_docx (not required to reproduce numbers)
+jupyter>=1.0        # optional: run notebooks/pipeline_walkthrough.ipynb
+nbconvert>=7.0      # optional: execute the notebook headless

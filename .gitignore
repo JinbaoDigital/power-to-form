@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+# generated at runtime
+data/synthetic/demo/
+experiments/out/
+# raw geodata is NOT re-hosted (Baidu ToS); caches are rebuilt from upstream (see data/README.md)
+engine/data/*/buildings.parquet
+*.parquet

@@ -1,0 +1,40 @@
+# stakeholder_lookup.yaml — 第3步:离散级联查表(一栋 = 一个 stakeholder,第一个来源命中即定)
+# cascade:EULUC 用途(面状,政商可分)为主 → 带年份 Function 补 → 百度 AOI 补 → unknown。
+# informal 不在表中(本数据无信号)→ 永不指派,恒空。改这张表 = 改「谁算谁的」。
+cascade: [euluc, function, aoi]
+euluc:
+  行政办公用地: state
+  教育科研用地: state
+  医疗卫生用地: state
+  体育与文化用地: state
+  公园与绿地用地: state
+  交通场站用地: state
+  机场设施用地: state
+  商务办公用地: developer
+  商业服务用地: developer
+  工业用地: developer
+  居住用地: resident
+function:
+  Public service: state
+  Office: developer
+  Business: developer
+  Industry: developer
+  Residence: resident
+  Other: unknown
+aoi_contains:
+  政府: state
+  机关: state
+  学校: state
+  大学: state
+  医院: state
+  卫生: state
+  科教: state
+  楼宇: developer
+  写字楼: developer
+  产业园: developer
+  工厂: developer
+  商务: developer
+  住宅: resident
+  小区: resident
+  公寓: resident
+default: unknown

@@ -1,0 +1,15 @@
+# sites.yaml — 第1步:12 个上海街道(跨形态家族)。name=乡镇街道层的精确名,slug=输出标识,family=形态家族。
+# 改这张表 = 换地方。name 用「包含匹配」也行(pf_common.subdistrict)。
+sites:
+  - {slug: lujiazui,  name: 陆家嘴街道,   family: 资本/超高层}
+  - {slug: waitan,    name: 外滩街道,     family: 资本/金融遗产}
+  - {slug: beiwaitan, name: 北外滩街道,   family: 资本/新CBD}
+  - {slug: nanjingxi, name: 南京西路街道, family: 资本/商业}
+  - {slug: jingansi,  name: 静安寺街道,   family: 资本/高端}
+  - {slug: caoyang,   name: 曹杨新村街道, family: 单位/工人新村}
+  - {slug: kongjiang, name: 控江路街道,   family: 单位/工人新村}
+  - {slug: pengpu,    name: 彭浦新村街道, family: 单位/工人新村}
+  - {slug: laoximen,  name: 老西门街道,   family: 居民/里弄石库门}
+  - {slug: yuyuan,    name: 豫园街道,     family: 居民/里弄老城}
+  - {slug: dapuqiao,  name: 打浦桥街道,   family: 居民/里弄+田子坊}
+  - {slug: zhangjiang, name: 张江高科技园区, family: 产业/科技新城}

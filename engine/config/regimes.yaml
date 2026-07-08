@@ -1,0 +1,45 @@
+# regimes.yaml — 第4步:权力体制 = 原子算子(operators.py)的配方
+# ============================================================================
+# 每个体制 = 一串算子(按序施加)。改这里 = 改「这种权力如何重写城市」,不必碰程式。
+# 算子词汇(见 operators.py / 算子图谱):
+#   freeze(who)              锁定某些 stakeholder 不动(state/遗产)
+#   weight_height(weights,mode)  按 stakeholder 权重重分配高度(conserve 守恒 / grow)
+#   concentrate(center,reach_frac,state_boost,cap_m)  向权力重心按距离收拢高度(守恒)
+#   split_to_towers(target,above_m2,k)   大 footprint 沿长轴拆成 k 块(GFA 守恒)
+#   slim(target,ratio)       footprint 向形心缩、高度补偿(塔化,GFA 守恒)
+#   densify(target,far_gain,cap_m)  抬高度 = 加 GFA(加密)
+#   infill(target,cell_m2,min_h,max_h,vary)  把大 footprint 细分成自建小体量(细粒低层)
+#   level(target,toward,alpha)   高度趋同(toward: median/p40/数值;alpha 强度)
+#   open_ground(target,ratio,cap_m)  缩私有 footprint 释放共享地面、高度补偿(GFA 守恒)
+# 形态约束(每个体制最后会被量测,见 measure.py / 综合报告)。这些是**教学假设**,非经验断言。
+
+developer_led:
+  label: 开发商主导
+  desc: 资本介入住宅/商业用地:拆板成塔 → 塔化变细 → 加密(多中心、GFA↑、覆盖↓)。state 公共不动。
+  steps:
+    - {op: freeze, who: [state]}
+    - {op: split_to_towers, target: [resident, developer], above_m2: 1500, k: 3}
+    - {op: slim, target: [resident, developer], ratio: 0.45}
+    - {op: densify, target: [resident, developer], far_gain: 1.8, cap_m: 480}
+
+state_led:
+  label: 政府主导 / 中央集权
+  desc: 政府多拿 + 高度向权力重心(政府/公共质心)收拢(单中心一座锥峰、GFA 守恒、CV↑)。
+  steps:
+    - {op: weight_height, weights: {state: 1.8, developer: 0.8, resident: 0.85, unknown: 0.9}, mode: conserve}
+    - {op: concentrate, center: state_centroid, reach_frac: 0.18, state_boost: 2.0, cap_m: 600}
+
+resident_self_build:
+  label: 居民自建为主
+  desc: 居民把大体量细分为自建小单元(细粒、高覆盖、低层、有机),高度趋低。state 公共不动。
+  steps:
+    - {op: freeze, who: [state]}
+    - {op: infill, target: [resident, developer], cell_m2: 120, min_h: 6, max_h: 21, vary: 0.35}
+    - {op: level, target: [resident, developer], toward: p40, alpha: 0.6}
+
+shared:
+  label: 共享 / 公共平权
+  desc: 缩私有 footprint 释放共享地面 + 高度趋同(均质中高、低覆盖、大量共享地、无人独大)。
+  steps:
+    - {op: open_ground, target: [resident, developer], ratio: 0.6, cap_m: 200}
+    - {op: level, target: [resident, developer, state], toward: median, alpha: 0.7}
