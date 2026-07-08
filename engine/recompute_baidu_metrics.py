@@ -1,7 +1,7 @@
 """
 recompute_baidu_metrics.py — regenerate the study's frozen 5-district metrics from the
 Baidu-v2 caches: heights_by_state.json, dist_shape_stats.json, and a study-consistent
-metrics_baidu_5districts.json (current + 4 regimes). Run per slug to stay within limits.
+metrics.json (current + 4 regimes). Run per slug to stay within limits.
 Usage: python3 recompute_baidu_metrics.py <slug>
 """
 import sys, json
@@ -40,7 +40,7 @@ def run(slug):
     upd(DATA / "dist_shape_stats.json", slug, dss)
     # 3) study-consistent regime metrics (FAR/coverage/grain/slender/concentration)
     rows, _ = M.compare(recs, after, slug)
-    upd(DATA / "metrics_baidu_5districts.json", slug,
+    upd(DATA / "metrics.json", slug,
         {"name": C.site_meta(slug)["name"], "source": "baidu_v2", "rows": rows})
     print(f"{slug}: current n={dss['current']['n']} dip={dss['current']['dip']:.4f} "
           f"p={dss['current']['dip_p']:.3f} | far={rows['current']['far']:.2f} "

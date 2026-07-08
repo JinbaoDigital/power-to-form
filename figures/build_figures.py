@@ -86,7 +86,7 @@ def fig11():
 
 
 def fig9():
-    m = json.load(open(DATA / "metrics_baidu_5districts.json"))
+    m = json.load(open(DATA / "metrics.json"))
     metrics = ["far", "coverage", "h_max", "grain", "slender"]; mlab = ["FAR", "coverage", "max height", "grain", "slenderness"]
     regimes = ["developer_led", "state_led", "resident_self_build", "shared"]; rlab = ["developer", "state", "resident", "shared"]
     M = np.full((len(metrics), len(regimes)), np.nan)

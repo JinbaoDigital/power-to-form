@@ -6,7 +6,7 @@
   Q3 结构:哪些维度反向?反向处 = 纯资本漫画与「国家+资本联合体」真实产物的形态分歧
           (预期:grain 反向——真实陆家嘴是裙楼粗粒,漫画拆塔是细粒)。
 
-离线:只读 data/metrics_baidu_5districts.json,秒级。
+离线:只读 data/metrics.json,秒级。
 产出:out/exp13_transplant.csv + exp13_summary.md
 """
 import csv
@@ -15,7 +15,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "out"; OUT.mkdir(exist_ok=True)
-MJ = json.load(open(HERE.parent / "data" / "metrics_baidu_5districts.json"))
+MJ = json.load(open(HERE.parent / "data" / "metrics.json"))
 
 METRICS = ["far", "coverage", "h_mean", "h_max", "h_cv", "grain", "slender", "concentration"]
 SITES = ["caoyang", "laoximen", "dapuqiao", "yuyuan"]

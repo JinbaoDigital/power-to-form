@@ -65,7 +65,7 @@ def run():
         shares[slug] = _shares(recs)
         print("  %s: n=%d far=%.2f resident cnt/gfa=%.2f/%.2f" %
               (slug, len(recs), rows["current"]["far"], shares[slug]["cnt_resident"], shares[slug]["gfa_resident"]))
-    json.dump(metrics, open(RES / "metrics_baidu_5districts.json", "w"), ensure_ascii=False, indent=1)
+    json.dump(metrics, open(RES / "metrics.json", "w"), ensure_ascii=False, indent=1)
     json.dump(hbs, open(RES / "heights_by_state.json", "w"))
     json.dump(dss, open(RES / "dist_shape_stats.json", "w"))
     json.dump(shares, open(RES / "stakeholder_shares.json", "w"), indent=1)
@@ -93,7 +93,7 @@ def demo():
 
 
 def verify():
-    m = json.load(open(RES / "metrics_baidu_5districts.json"))
+    m = json.load(open(RES / "metrics.json"))
     sh = json.load(open(RES / "stakeholder_shares.json"))
     print("\nFive districts as found (from results/):\n")
     print("%-10s%6s%7s%7s   cnt s/d/r/u          gfa s/d/r/u" % ("district", "n", "FAR", "cov"))

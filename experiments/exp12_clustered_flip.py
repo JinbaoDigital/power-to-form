@@ -26,7 +26,7 @@ import operators as OP
 import measure as M
 
 OUT = HERE / "out"; OUT.mkdir(exist_ok=True)
-MJ = json.load(open(HERE.parent / "data" / "metrics_baidu_5districts.json"))
+MJ = json.load(open(HERE.parent / "data" / "metrics.json"))
 SITES = ["lujiazui", "caoyang", "laoximen", "dapuqiao", "yuyuan"]
 TARGETS = ["laoximen", "yuyuan"]          # 老城厢:已知误标方向所在
 REGS = OP.load_regimes(ENGINE / "config" / "regimes.yaml")
