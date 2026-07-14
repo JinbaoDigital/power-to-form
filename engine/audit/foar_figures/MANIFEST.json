@@ -335,6 +335,54 @@
    ]
   }
  ],
+ "published_figures": {
+  "$comment": "The nine PNGs published as Fig. 1-7 and shipped in the release repository under figures/. Each is a byte-identical copy of the engine-side output named in \"source\" (paths relative to the engine root); the sha256 therefore pins both copies. Keys are the release paths, relative to the release repository root, so that reproduce.py --verify can re-hash them directly. The four engine-side PNGs that were NOT published (F2_gallery_skyline.png, F4_reachable_pengpu/zhangjiang/lujiazui.png) are not pinned here because they are not shipped.",
+  "figures/fig1_parameter_families.png": {
+   "figure": "Fig. 1 Parameter families",
+   "source": "out/cake_figs/F6_parameters.png",
+   "sha256": "5ebc304ae706de1e926a699a1a34c4771fbd992136fd7df1f7436da868052e47"
+  },
+  "figures/fig2_loop.png": {
+   "figure": "Fig. 2 The loop",
+   "source": "out/cake_figs/F5_loop.png",
+   "sha256": "edef2ddc29bf755547d18d2f8bc4667bdb3bf8ccc2a7dd45bb8a7bc75fff75d6"
+  },
+  "figures/fig3_site_atlas.png": {
+   "figure": "Fig. 3 Site atlas",
+   "source": "out/cake_figs/F1_atlas.png",
+   "sha256": "3337167ecfa08722d195d15226ba1b0a28cfd386588ee659fe69acf33763e6e0"
+  },
+  "figures/fig4_configuration_gallery.png": {
+   "figure": "Fig. 4 Configuration gallery",
+   "source": "out/cake_figs/F2_gallery.png",
+   "sha256": "754afd0003c7d50cb596ab2d8ff217928d136fb202e073a551bf34426e446286"
+  },
+  "figures/fig5_fingerprints.png": {
+   "figure": "Fig. 5 Cross-case fingerprints",
+   "source": "out/cake_figs/F3_fingerprints.png",
+   "sha256": "63df09c58afd041ff10112b7fa0452b49111f5aff0fde1b88cfdbb8912bc49fb"
+  },
+  "figures/fig6_reachability.png": {
+   "figure": "Fig. 6 Reachability",
+   "source": "out/cake_figs/F4_reachability_all.png",
+   "sha256": "714abc49b87ada7484bb9f8139b789770fd6624e3ac6a429a4d5d59a02821e13"
+  },
+  "figures/fig7a_pca_stakeholder.png": {
+   "figure": "Fig. 7a PCA by stakeholder",
+   "source": "out/cake_figs/E1_pca_stakeholder.png",
+   "sha256": "e87dfc311ef5c50ba6e60155831433b0f9de1166d831869e505e95c2e5cb3924"
+  },
+  "figures/fig7b_pca_variants.png": {
+   "figure": "Fig. 7b PCA read three ways",
+   "source": "out/cake_figs/E2_pca_variants.png",
+   "sha256": "21eacdbd3c21a646b36c14ceb4f42de70b24028f31ffcc11197c30d1e7e13ff9"
+  },
+  "figures/fig7c_ae_vae.png": {
+   "figure": "Fig. 7c AE / beta-VAE vs PCA",
+   "source": "out/cake_figs/E3_ae_vae.png",
+   "sha256": "a74035a3951ee2beba3c29bbee598a9f9fbf33b9b2a9025a87e86aafad673acb"
+  }
+ },
  "verification": {
   "script": "verify_cake_nr10.py",
   "sha256": "87aa724d1ba82ce9aae79e0816e8428fcc7d4ea9a702a77ad24908a8787ec779",

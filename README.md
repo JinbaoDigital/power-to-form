@@ -13,20 +13,27 @@ the code that produced them**. It is not a data release.
 
 ```bash
 pip install -r requirements.txt
-python reproduce.py --verify     # reconcile EVERY number in the paper, 48 checks, no data needed
+python reproduce.py --verify     # recompute 72 checks over the frozen artefacts, no data needed
 ```
 
 `--verify` hard-codes only the *expected* value (the number as printed in the paper), *recomputes*
 the actual value from the frozen artefacts in `engine/out/`, prints both, and exits non-zero if any
-of them disagree. See [`VALIDATION.md`](VALIDATION.md) for the three validation layers and the
-reviewer's figure-by-figure recomputation path.
+of them disagree. What it covers is **72 named checks**, not literally every cell of every shipped
+file: Table 1, the frozen-five regression, the four by-construction invariants, the two failure
+anchors, the eight reachability grids, the envelope, the Spearman ranks, the embedding statistics,
+the 42 manifest hashes and the nine figure hashes, plus the ledgers, skylines and traceability CSVs
+(row counts, the ordering-rule lift, the weakness ties, the age coverage, the invariance runs).
+[`VALIDATION.md`](VALIDATION.md) lists the 72 one by one **and names what ships unchecked** (the
+per-row content of the 83 ledgers, most columns of the four traceability CSVs), the three validation
+layers, and the reviewer's figure-by-figure recomputation path.
 
 ---
 
 ## What this repo carries
 
 ```
-reproduce.py            --verify (audit every number) - --run (needs the licensed caches) - --demo
+reproduce.py            --verify (72 checks) - --run (needs the licensed caches) - --demo
+audit_release.py        runs the pinned verify_cake_nr10.py and skips what the release cannot ship
 VALIDATION.md           the three validation layers + figure -> script -> input -> command table
 engine/                 the instrument
   cake.py                 the transform: acquisition, weakness ordering, rebuild, the gamma envelope
@@ -34,7 +41,7 @@ engine/                 the instrument
   measure.py, figs_cake.py, operators.py       the ruler and the shared drawing helpers
   run_cake.py, run_cake_all.py                 the 5-site (frozen) and 8-site runners
   aux_csv_nr10.py                              the four traceability CSVs
-  verify_cake_nr10.py                          the 34 pinned checks
+  verify_cake_nr10.py                          the 34 pinned checks (24 run in the release)
   figs_nr10.py, figs_nr10_schematic.py, figs_nr10_embed.py    the three figure scripts
   cake_viewers.py                              builds the interactive viewers (outputs not shipped, below)
   config/                 scenarios - regimes - sites - stakeholder_lookup - vignette_recipes  <- edit these
@@ -54,9 +61,19 @@ paper/                    the manuscript build chain (the manuscript body is NOT
 archive_v5_5district/     the previous generation, kept whole (see "Two generations")
 ```
 
-Every artefact above is a **derived measurement**: metrics, fingerprints, shares, ledgers, skylines,
-reachability grids, embedding statistics, latent coordinates. None of them contains a coordinate, a
-footprint or an image tile.
+Every artefact of the **eight current sites** above is a **derived measurement**: metrics,
+fingerprints, shares, ledgers, skylines, reachability grids, embedding statistics, latent
+coordinates. None of them contains a coordinate, a footprint or an image tile: the eight
+`data/<slug>/site.yaml` carry name, slug, area and count and no bounding box, and no parquet,
+shapefile, viewer or screenshot exists anywhere in the tree or in any commit of its history.
+
+**The archive is the exception, and a disclosed one.** `archive_v5_5district/` is the previous
+release kept whole. Its five `engine/data/<slug>/site.yaml` still carry `bounds_lonlat`, the
+**lon/lat bounding box of the jiedao** each site clips - a sub-district extent, four numbers, not
+per-building geometry - and `archive_v5_5district/figures/figB3_figure_ground_compare.png` is a
+published figure-ground plate, that is, a raster depiction of real footprints. Both have been public
+since the first release (commit `c6ceb6d`) and are left untouched so that the earlier paper stays
+reproducible. The current generation carries neither.
 
 ## What this repo deliberately does not carry, and why
 
@@ -71,8 +88,9 @@ footprint or an image tile.
 Consequences, stated plainly: **Fig. 1 and Fig. 5 can be rebuilt from this repository alone**; the
 other figures crop the viewers' screenshots or read the caches, so they can only be rebuilt in the
 full working tree, with the licensed upstream data. The published PNGs of all seven are in
-`figures/`. The **numbers** behind all seven are auditable here, which is the point of the package:
-`reproduce.py --verify` recomputes them from the derived artefacts.
+`figures/`, each pinned by sha256 in `MANIFEST.json` and re-hashed by `--verify`. The **numbers**
+behind all seven are auditable here, which is the point of the package: `reproduce.py --verify`
+recomputes them from the derived artefacts in the 72 checks listed in `VALIDATION.md`.
 
 Cache building (`pf_common.build_cache`) is kept in the code because it documents the provenance of
 every column, but it reads the licensed upstream Shanghai compilation and is therefore **not
@@ -97,9 +115,25 @@ engine, experiments, results and figures, so both papers remain reproducible fro
 ## The reviewer's path
 
 ```bash
-python reproduce.py --verify              # 1. every published number, recomputed (48 checks)
-cd engine && python verify_cake_nr10.py   # 2. the 34 pinned checks (24 run here; see VALIDATION.md)
+python reproduce.py --verify     # 1. the published numbers, recomputed
+python audit_release.py          # 2. the pinned verifier, read against what the release ships
 ```
+
+Both exit **0** on a correct release. Expect exactly this:
+
+| Command | What you should see | Exit |
+|---|---|---|
+| `python reproduce.py --verify` (or `make verify`) | `ALL PASS   72 checks, 0 failed`, and one `note` line for the declared `pf_common.py` comment-line delta | 0 |
+| `python audit_release.py` (or `make audit`, which runs `--verify` first) | the pinned `engine/verify_cake_nr10.py`, re-hashed against `MANIFEST.json` and run unmodified: `ALL PASS   24 pass, 10 skipped, 0 failed` | 0 |
+
+The 10 skipped checks are the pinned verifier's last section, which asserts that the rendered
+figures, the eight interactive viewers and the 80 Three.js screenshots sit in `engine/out/cake_figs/`.
+Those are the artefacts this release deliberately does not carry (table above), so they cannot pass
+here and `audit_release.py` reports them as **skipped**, not failed. Run the pinned script raw
+(`make audit-raw`, i.e. `cd engine && python verify_cake_nr10.py`) and it will print `24 ok, 10 FAIL`
+and **exit 1**: that is the same fact, counted the other way. `verify_cake_nr10.py` is itself pinned
+by sha256 in `MANIFEST.json` and is never edited; the wrapper is what changes, not the audit chain.
+In the full working tree, with the caches and the rendered viewers, all 34 pass.
 
 Then read [`VALIDATION.md`](VALIDATION.md) for the figure -> script -> input -> command table, and
 `engine/audit/foar_figures/PROVENANCE.md` for the lineage of every column the instrument reads.

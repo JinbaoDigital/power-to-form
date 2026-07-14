@@ -2,17 +2,19 @@
 """
 reproduce.py - one entry point for the auditable parametric instrument.
 
-  python reproduce.py --verify   recompute and reconcile EVERY number in the paper from the
-                                 frozen derived artefacts in engine/out/ (no licensed data needed).
-                                 Exits non-zero if any check fails.
+  python reproduce.py --verify   recompute and reconcile the published numbers from the frozen
+                                 derived artefacts in engine/out/ (no licensed data needed).
+                                 72 checks; exits non-zero if any of them fails. VALIDATION.md
+                                 lists what is checked and what ships unchecked.
   python reproduce.py --run      recompute the artefacts from the per-site caches. The caches are
                                  Baidu-derived geometry and are NOT redistributed; see README.md.
   python reproduce.py --demo     run the v5 engine on a synthetic district (delegates to the
                                  archived 5-district package; no data needed).
 
 This repo ships DERIVED measurements + code, never raw geometry. --verify reads only
-JSON/CSV artefacts: it hard-codes the EXPECTED value published in the paper, RECOMPUTES the
-actual value from the artefacts, prints both, and compares. See VALIDATION.md.
+JSON/CSV/PNG artefacts: it hard-codes the EXPECTED value published in the paper, RECOMPUTES the
+actual value from the artefacts, prints both, and compares. It does NOT re-check every cell of
+every shipped file; VALIDATION.md names the 72 checks and the columns left unchecked.
 """
 import sys, json, csv, math, argparse, hashlib, subprocess
 from pathlib import Path
@@ -94,6 +96,8 @@ def verify():
     print("source: engine/out/cake/*.json|csv, engine/out/cake_figs/E_embed_stats.json (derived, frozen)")
     print("method: the EXPECTED value is the number printed in the paper; the RECOMPUTED value is")
     print("        derived from the artefacts on every run. Nothing below prints itself.")
+    print("scope:  72 named checks. VALIDATION.md lists them, and names the columns of the shipped")
+    print("        artefacts that no verifier opens. This is not a cell-by-cell re-read of the tree.")
 
     # -------------------------------------------------- 0. release guard
     print("\n0. release guard (no raw geometry may be present)")
@@ -156,6 +160,12 @@ def verify():
                  for s in SITES for k in A[s] if k not in ("current", "site"))
     chk(cov_ok, "coverage / grain / n frozen in every run", "identical to as-found",
         "identical" if cov_ok else "DRIFT")
+    shr = [(s, k, sum(v["shares_gfa"].values())) for s in SITES for k, v in A[s].items()
+           if isinstance(v, dict) and "shares_gfa" in v]
+    dmax = max(abs(t - 1.0) for _, _, t in shr)
+    chk(len(shr) == 88 and dmax <= 5e-4, "one building, one holder: shares sum to 1 per site",
+        "1.000 +/- 5e-04 in every run", "max |sum - 1| = %.3e over %d runs" % (dmax, len(shr)),
+        "the residual is 4 dp rounding of the four shares, not leakage")
 
     # -------------------------------------------------- 3. failure anchors
     print("\n3. the two failure anchors (the demonstration's central observation)")
@@ -246,13 +256,17 @@ def verify():
     # -------------------------------------------------- 8. hash manifest
     print("\n8. hash manifest (engine/audit/foar_figures/MANIFEST.json)")
     M = json.load(open(AUDIT / "MANIFEST.json", encoding="utf-8"))
-    pinned = {}
+    pinned = {}   # every sha256 in the manifest whose file is shipped; path relative to engine/
+    pinned.update({k: v["sha256"] for k, v in M["scripts"].items()})
     pinned.update({"audit/foar_figures/scripts_snapshot/" + k: v
                    for k, v in M["scripts_snapshot"]["sha256"].items()})
     pinned.update({k: v for k, v in M["helpers"].items() if not k.startswith("$")})
+    pinned.update({k: v["sha256"] for k, v in M["upstream_producers"].items()
+                   if not k.startswith("$")})
     pinned.update({k: v for k, v in M["configs"].items()})
     pinned.update({k: v for k, v in M["frozen_data_inputs"].items() if not k.startswith("$")})
     pinned.update({e["path"]: e["sha256"] for e in M["embed_cache_frozen"] if "path" in e})
+    pinned[M["verification"]["script"]] = M["verification"]["sha256"]
     KNOWN_DELTA = {  # release policy: two comment lines about the upstream source layer were removed
         "pf_common.py": ("15be82d27e7d1a842b20f54e6eb601e5395f29e9277eba9ed3add0ca36edd2f3",
                          "2 comment lines scrubbed for release; code identical - see VALIDATION.md")}
@@ -270,26 +284,122 @@ def verify():
         else:
             bad.append("%s: %s != %s" % (rel, got[:8], want[:8]))
     present = len(pinned) - len(missing)
+    chk(not missing, "every pinned path is present in the release", "0 absent",
+        "%d absent of %d pinned" % (len(missing), len(pinned)),
+        "" if not missing else "; ".join(missing))
     chk(not bad, "pinned artefacts reconciling with MANIFEST", "0 unexplained mismatches",
-        "%d unexplained (%d exact + %d known delta of %d present)"
-        % (len(bad), present - len(delta) - len(bad), len(delta), present),
+        "%d unexplained (%d exact + %d known delta of %d pinned)"
+        % (len(bad), present - len(delta) - len(bad), len(delta), len(pinned)),
         "" if not bad else "; ".join(bad))
     for rel in delta:
         print("  note  %-46s known release delta: %s" % (rel, KNOWN_DELTA[rel][1]))
-    if missing:
-        # absent by design: raw geometry and the 80 screenshots are not redistributed (see README)
-        print("  note  %d pinned paths absent from the release, by design: %s"
-              % (len(missing), ", ".join(missing)))
-    snap = sha256(AUDIT / "scripts_snapshot" / "figs_nr10_schematic.py")
-    live = sha256(ENG / "figs_nr10_schematic.py")
-    chk(snap == live, "scripts_snapshot pins the published figure scripts",
-        "snapshot == engine copy", "%s == %s" % (snap[:8], live[:8]))
+    for fs in ("figs_nr10.py", "figs_nr10_embed.py", "figs_nr10_schematic.py"):
+        snap = sha256(AUDIT / "scripts_snapshot" / fs)
+        live = sha256(ENG / fs)
+        chk(snap == live, "snapshot == engine copy: %s" % fs, "byte-identical",
+            "%s == %s" % (snap[:8], live[:8]))
 
     # -------------------------------------------------- 9. figures
     print("\n9. the published figures (figures/)")
     figs = sorted((ROOT / "figures").glob("fig*.png"))
     chk(len(figs) == 9 and all(f.stat().st_size > 20000 for f in figs),
         "Fig. 1-7 PNGs on disk (Fig. 7 has 3 panels)", "9 files > 20 KB", "%d files" % len(figs))
+    fpin = {k: v["sha256"] for k, v in M["published_figures"].items() if not k.startswith("$")}
+    fbad = [rel for rel, want in sorted(fpin.items())
+            if not (ROOT / rel).exists() or sha256(ROOT / rel) != want]
+    chk(len(fpin) == 9 and not fbad, "the nine PNGs reconcile with MANIFEST.published_figures",
+        "9 of 9 sha256 exact", "%d of %d exact" % (len(fpin) - len(fbad), len(fpin)),
+        "" if not fbad else "; ".join(fbad))
+
+    # -------------------------------------------------- 10. ledgers, skylines, traceability CSVs
+    print("\n10. the shipped artefacts the audit used to leave unopened")
+    print("    (83 ledger_*.csv, 8 skyline_*.json, invariance / rule_comparison / weakness_dist /")
+    print("     age_layer_stats .csv - recomputed here, not merely shipped)")
+    led = sorted(OUT.glob("ledger_*.csv"))
+    chk(len(led) == 83, "per-building ledgers shipped", "83 files", "%d files" % len(led))
+    lrows = {p.name: sum(1 for _ in open(p, encoding="utf-8")) - 1 for p in led}
+    mism, npair = [], 0
+    for s in SITES:
+        for k, v in A[s].items():
+            if isinstance(v, dict) and "acquired_n" in v:
+                npair += 1
+                if lrows.get("ledger_%s_%s.csv" % (s, k)) != v["acquired_n"]:
+                    mism.append("%s_%s" % (s, k))
+    chk(npair == 80 and not mism, "ledger rows == acquired_n in every scenario run",
+        "80 runs, 0 mismatches", "%d runs, %d mismatches" % (npair, len(mism)),
+        "" if not mism else ", ".join(mism))
+    ppl = lrows["ledger_pengpu_resident_retain_B.csv"]
+    chk(ppl == 0 and pp["resident_retain_B"]["acquired_n"] == 0,
+        "pengpu resident-led ledger: nothing is taken", "0 rows (acquired_n = 0)",
+        "%d rows (acquired_n = %d)" % (ppl, pp["resident_retain_B"]["acquired_n"]))
+    sky_n, sky_bad = 0, set()
+    HOLDERS = {"state", "developer", "resident", "unknown"}
+    for s in SITES:
+        cur = json.load(open(OUT / ("skyline_%s.json" % s), encoding="utf-8"))["current"]
+        sky_n += len(cur)
+        if int(max(r[1] for r in cur)) != int(A[s]["current"]["fingerprint"]["h_max"]):
+            sky_bad.add(s)
+        if set(r[2] for r in cur) - HOLDERS:
+            sky_bad.add(s)
+    chk(sky_n == 11397, "skyline_<slug>.json: buildings carried, 8 sites", "11,397",
+        "{:,}".format(sky_n))
+    chk(not sky_bad, "skyline h_max == Table 1 h_max; holders in the 4 declared classes",
+        "8 of 8 sites agree", "%d of 8 agree" % (8 - len(sky_bad)))
+
+    RC = list(csv.DictReader(open(OUT / "rule_comparison.csv", encoding="utf-8")))
+    lift = {}
+    for r in RC:
+        lift.setdefault(r["rule"], []).append(float(r["lift_over_pool"]))
+    mlift = {k: sum(v) / len(v) for k, v in lift.items()}
+    chk(len(RC) == 32 and sorted(lift) == ["adjacency_first", "random", "value_first", "weak_first"]
+        and all(len(v) == 8 for v in lift.values()),
+        "rule_comparison.csv: 4 ordering rules x 8 sites", "32 rows", "%d rows" % len(RC))
+    for rule, exp in [("weak_first", 0.214), ("random", -0.002), ("value_first", -0.155),
+                      ("adjacency_first", -0.031)]:
+        chk(close(round(mlift[rule], 3), exp, 0.0005), "mean weakness lift over pool: %-15s" % rule,
+            "%+.3f" % exp, "%+.4f" % mlift[rule])
+    chk(mlift["weak_first"] > mlift["random"] > mlift["adjacency_first"] > mlift["value_first"],
+        "weak_first takes the weakest, the other three rules do not",
+        "weak > random > adjacency > value", " > ".join(
+            k for k in sorted(mlift, key=lambda x: -mlift[x])))
+
+    WD = list(csv.DictReader(open(OUT / "weakness_dist.csv", encoding="utf-8")))
+    wpool = [r for r in WD if r["pool"] == "acquirable_pool_developer"]
+    ties = [float(r["tie_share_exact"]) for r in wpool]
+    chk(len(WD) == 48 and len(wpool) == 8, "weakness_dist.csv: 6 pools x 8 sites", "48 rows",
+        "%d rows (%d pool rows)" % (len(WD), len(wpool)))
+    chk(min(ties) >= 0.88 and max(ties) <= 0.995, "weakness ties inside the acquirable pool",
+        "88-99 % of the pool tied", "%.1f-%.1f %%" % (100 * min(ties), 100 * max(ties)),
+        "the weakness score is coarse: order, not a ruler")
+
+    AL = list(csv.DictReader(open(OUT / "age_layer_stats.csv", encoding="utf-8")))
+    cov = [float(r["age_coverage"]) for r in AL]
+    cens = sorted(set(r["censor_year"] for r in AL))
+    chk(len(AL) == 16 and cens == ["1984"], "age_layer_stats.csv: 2 pools x 8 sites, right-censored",
+        "16 rows, censor 1984", "%d rows, censor %s" % (len(AL), "/".join(cens)))
+    chk(min(cov) >= 0.48 and max(cov) <= 0.71, "construction-year coverage over the 16 pools",
+        "0.48-0.71 of buildings dated", "%.4f-%.4f" % (min(cov), max(cov)))
+
+    IV = list(csv.DictReader(open(OUT / "invariance.csv", encoding="utf-8")))
+    sens = [r for r in IV if r["test"] == "sensitivity"]
+    abl = [r for r in IV if r["test"].startswith("ablation")]
+    chk(len(IV) == 90 and len(sens) == 50 and len(abl) == 40,
+        "invariance.csv: sensitivity + ablation rows", "90 rows (50 + 40)",
+        "%d rows (%d + %d)" % (len(IV), len(sens), len(abl)))
+    smet = [r for r in sens if r["met"] == "True" and float(r["reached"]) >= 0.7999]
+    chk(len(smet) == 50 == len(sens),
+        "developer target met under every weakness weighting", "50 of 50 runs (reached >= 0.80)",
+        "%d of %d runs" % (len(smet), len(sens)),
+        "5 districts x (w_age, w_gap) in 5 splits x missing_age in {zero, median}")
+    loss = [float(r["resident_loss_share"]) for r in sens]
+    chk(min(loss) == 1.0 and max(loss) == 1.0, "residents bear the whole loss, every weighting",
+        "1.000 in 50 of 50", "%.3f-%.3f in %d runs" % (min(loss), max(loss), len(loss)))
+    cells = {}
+    for r in abl:
+        cells.setdefault((r["test"], r["district"]), {})[r["rule"]] = float(r["lift_over_pool"])
+    won = [k for k, v in cells.items() if max(v, key=lambda x: v[x]) == "weak_first"]
+    chk(len(cells) == 10 and len(won) == 10, "weak_first leads the ablation in every cell",
+        "10 of 10 (5 districts x 2 intensities)", "%d of %d" % (len(won), len(cells)))
 
     print("\n%s   %d checks, %d failed" % ("ALL PASS" if not _fails else "FAILED",
                                            _checks[0], len(_fails)))
@@ -318,8 +428,8 @@ def run():
         print("  python figs_nr10_embed.py all # restore audit/foar_figures/embed_cache_frozen/ first")
         print("  python verify_cake_nr10.py    # the 34 pinned checks")
         print("")
-        print("Without the upstream data every published number is still fully checkable:")
-        print("  python reproduce.py --verify")
+        print("Without the upstream data the published numbers are still checkable:")
+        print("  python reproduce.py --verify    # 72 checks; VALIDATION.md lists them one by one")
         return 0
     print("caches present; recomputing the eight-site run...")
     return subprocess.call([sys.executable, str(ENG / "run_cake_all.py"), "all"], cwd=str(ENG))
@@ -336,7 +446,8 @@ def demo():
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--verify", action="store_true", help="reconcile every published number from engine/out/")
+    ap.add_argument("--verify", action="store_true",
+                    help="recompute the published numbers from engine/out/ (72 checks)")
     ap.add_argument("--run", action="store_true", help="recompute the artefacts (needs the licensed caches)")
     ap.add_argument("--demo", action="store_true", help="run the engine on a synthetic district")
     a = ap.parse_args()
