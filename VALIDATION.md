@@ -131,14 +131,14 @@ Honest caveats on the embedding, both measured rather than assumed:
 | 11 | Reachability | **87 of 200** cells unreachable, **all 87** state-side, **0** developer-side; per site zhangjiang 0, nanjingxi 5, dapuqiao 5, lujiazui 9, caoyang 15, yuyuan 15, laoximen 18, pengpu 20 (of 25) |
 | 4 | Envelope | base (60 m) binds in **0 of 80**, highest rebuild target 58.56 m; strict (30 m) binds in **3 of 32**, removes **6.036e+06 m3** |
 | 5 | Rank preservation | Spearman rho: FAR under developer-led **1.00**; concentration under state-led **0.33**; h_cv under shared **0.50**; slenderness under state-led and shared **1.00** |
-| 6 | Embedding | PCA-2D **57.2**, AE-2D **88.8**, VAE-2D **90.4**, full-D **88.5**, form-only full-D **34.7** with state recall **0.07**; n = 11,397 |
+| 7 | Embedding | PCA-2D **57.2**, AE-2D **88.8**, VAE-2D **90.4**, full-D **88.5**, form-only full-D **34.7** with state recall **0.07**; n = 11,397 |
 | 5 | Hashes | all **42** pinned artefacts re-hashed, an absent one is a failure; snapshot == engine copy for **all three** figure scripts |
 | 2 | Figures | the nine PNGs of Fig. 1-7 present **and sha256-pinned** (`published_figures`) |
 | 5 | Ledgers + skylines | 83 `ledger_*.csv` shipped; **ledger rows == `acquired_n` in all 80 scenario runs**; Pengpu resident-led ledger **0 rows** against its `acquired_n = 0`; the 8 `skyline_*.json` carry **11,397** buildings, their `h_max` equals Table 1's, their holders are the four declared classes |
 | 6 | Ordering rule | `rule_comparison.csv` 32 rows; mean weakness lift over the pool recomputed per rule: weak_first **+0.214**, random **-0.002**, adjacency_first **-0.031**, value_first **-0.155**, and weak_first leads |
 | 2 | Weakness ties | `weakness_dist.csv` 48 rows; inside the developer-acquirable pool **88.1 % to 99.3 %** of buildings are tied on weakness (the score is an order, not a ruler) |
 | 2 | Age layer | `age_layer_stats.csv` 16 rows, right-censored at **1984**; construction-year coverage **0.48 to 0.71** across the 16 pools |
-| 5 | Invariance | `invariance.csv` 90 rows (50 sensitivity + 40 ablation); the developer target is met in **50 of 50** weightings, residents bear **1.000** of the loss in all 50, and weak_first leads the lift in **10 of 10** ablation cells |
+| 4 | Invariance | `invariance.csv` 90 rows (50 sensitivity + 40 ablation); the developer target is met in **50 of 50** weightings, residents bear **1.000** of the loss in all 50, and weak_first leads the lift in **10 of 10** ablation cells |
 
 Spearman is computed inside `reproduce.py` from average ranks (a dozen lines) rather than by
 importing scipy, so the audit runs on a bare Python and adds no dependency.
@@ -159,7 +159,7 @@ read them, but no verifier reconciles them cell by cell:
 | `age_layer_stats.csv` | 16 rows, censor year, age coverage | the 27 other columns (year moments, weakness decomposition, the two Spearman columns) |
 | `invariance.csv` | 90 rows; target met, resident loss share, ablation ordering | `acquired`, the weakness moments, `pool_taken_frac` |
 | `gamma_bind.csv` | the base/strict envelope rows used by the envelope checks | the permissive and none rows, and the per-run clipping columns |
-| `E_embed_stats.json` | the five balanced accuracies + the state recall | the PCA explained-variance and silhouette leaves (they drift at 1e-15 across BLAS builds; see above) |
+| `E_embed_stats.json` | n = 11,397, the five balanced accuracies, the state recall | the PCA explained-variance and silhouette leaves (they drift at 1e-15 across BLAS builds; see above) |
 | the nine PNGs | sha256 against `MANIFEST.published_figures` | nothing re-renders them here: Fig. 3, 4, 6, 7 need the licensed caches and the screenshots |
 | `paper/` build chain | - | not run by the audit; the manuscript body is not in this repository |
 
