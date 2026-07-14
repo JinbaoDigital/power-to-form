@@ -1,6 +1,12 @@
 cff-version: 1.2.0
 message: "If you use this software or its results, please cite the manuscript and this package."
-title: "Power-to-Form: a stakeholder-power shape grammar (reproducibility package)"
+title: "Reading the Found City through Stakeholder Power: An Auditable Parametric Instrument (audit and validation package)"
+abstract: >-
+  Derived measurements and code for a deterministic instrument that reads a real building stock,
+  maps each building to the stakeholder who holds it through a declared lookup, transforms the stock
+  under one configuration of power, and reads the result back with the same ruler. Eight Shanghai
+  sub-districts, 11,397 buildings, four power configurations. Raw building geometry is not
+  redistributed; every published number is recomputable from the frozen derived artefacts.
 authors:
   - family-names: Zhong
     given-names: Jinbao
@@ -10,7 +16,7 @@ authors:
     affiliation: "Institute of Architecture, National Yang Ming Chiao Tung University (NYCU)"
 year: 2026
 license: MIT
-keywords: [urban morphology, shape grammar, stakeholder power, computational design, generative design]
+keywords: [urban morphology, stakeholder power, parametric instrument, auditable computation, computational design, reproducibility]
 references:
   - type: article
     title: "Enhanced mapping of essential urban land use categories in China (EULUC-China 2.0): integrating multimodal deep learning with multisource geospatial data"
@@ -21,3 +27,12 @@ references:
         given-names: Bin
     year: 2025
     doi: 10.1016/j.scib.2025.07.006
+  - type: software
+    title: "Power-to-Form: a stakeholder-power shape grammar (reproducibility package, five districts)"
+    notes: "The previous generation of this package, kept whole in archive_v5_5district/."
+    authors:
+      - family-names: Zhong
+        given-names: Jinbao
+      - family-names: Hou
+        given-names: June-Hao
+    year: 2026

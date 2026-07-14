@@ -1,0 +1,3224 @@
+{
+ "lujiazui": {
+  "current": {
+   "shares_gfa": {
+    "state": 0.0675,
+    "developer": 0.6543,
+    "resident": 0.2753,
+    "unknown": 0.0029
+   },
+   "shares_count": {
+    "state": 0.1244,
+    "developer": 0.2412,
+    "resident": 0.6263,
+    "unknown": 0.0081
+   },
+   "coverage": 0.1793,
+   "n": 1849,
+   "fingerprint": {
+    "n": 1849.0,
+    "far": 3.2602,
+    "coverage": 0.1793,
+    "h_mean": 41.1271,
+    "h_max": 606.0,
+    "h_cv": 1.2902,
+    "grain": 418.8193,
+    "slender": 1.3013,
+    "concentration": 0.3171
+   },
+   "V_total_m3": 78670498.8
+  },
+  "capital_extreme_A": {
+   "grow": "developer",
+   "target": 0.6,
+   "mode": "redistribute",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.6543,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 1158,
+   "acquired_n": 0,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.0675,
+    "developer": 0.6543,
+    "resident": 0.2753,
+    "unknown": 0.0029
+   },
+   "shares_count": {
+    "state": 0.1244,
+    "developer": 0.2412,
+    "resident": 0.6263,
+    "unknown": 0.0081
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 0,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 0,
+    "resident": 0
+   },
+   "transfer_matrix": {},
+   "fingerprint": {
+    "n": 1849.0,
+    "far": 3.2602,
+    "coverage": 0.1793,
+    "h_mean": 41.1271,
+    "h_max": 606.0,
+    "h_cv": 1.2902,
+    "grain": 418.8193,
+    "slender": 1.3013,
+    "concentration": 0.3171
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "capital_extreme_B": {
+   "grow": "developer",
+   "target": 0.6,
+   "mode": "grow",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.6543,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 1158,
+   "acquired_n": 0,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.0675,
+    "developer": 0.6543,
+    "resident": 0.2753,
+    "unknown": 0.0029
+   },
+   "shares_count": {
+    "state": 0.1244,
+    "developer": 0.2412,
+    "resident": 0.6263,
+    "unknown": 0.0081
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 0,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 0,
+    "resident": 0
+   },
+   "transfer_matrix": {},
+   "fingerprint": {
+    "n": 1849.0,
+    "far": 3.2602,
+    "coverage": 0.1793,
+    "h_mean": 41.1271,
+    "h_max": 606.0,
+    "h_cv": 1.2902,
+    "grain": 418.8193,
+    "slender": 1.3013,
+    "concentration": 0.3171
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "state_civic_A": {
+   "grow": "state",
+   "target": 0.3,
+   "mode": "redistribute",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.3079,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 359,
+   "acquired_n": 282,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.3079,
+    "developer": 0.4139,
+    "resident": 0.2753,
+    "unknown": 0.0029
+   },
+   "shares_count": {
+    "state": 0.2769,
+    "developer": 0.0887,
+    "resident": 0.6263,
+    "unknown": 0.0081
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 18911709.8,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 282,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->state": 18911709.8
+   },
+   "fingerprint": {
+    "n": 1849.0,
+    "far": 3.2602,
+    "coverage": 0.1793,
+    "h_mean": 41.1271,
+    "h_max": 606.0,
+    "h_cv": 1.2902,
+    "grain": 418.8193,
+    "slender": 1.3013,
+    "concentration": 0.3412
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "state_civic_B": {
+   "grow": "state",
+   "target": 0.3,
+   "mode": "grow",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.3009,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 359,
+   "acquired_n": 350,
+   "gfa_change_pct": -40.57,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.3009,
+    "developer": 0.2311,
+    "resident": 0.4632,
+    "unknown": 0.0049
+   },
+   "shares_count": {
+    "state": 0.3137,
+    "developer": 0.0519,
+    "resident": 0.6263,
+    "unknown": 0.0081
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 40670962.5,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 350,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->state": 40670962.5
+   },
+   "fingerprint": {
+    "n": 1849.0,
+    "far": 1.9375,
+    "coverage": 0.1793,
+    "h_mean": 33.5354,
+    "h_max": 420.0,
+    "h_cv": 1.0085,
+    "grain": 418.8193,
+    "slender": 1.316,
+    "concentration": 0.1569
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "resident_retain_A": {
+   "grow": "resident",
+   "target": 0.75,
+   "mode": "redistribute",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.7862,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 446,
+   "acquired_n": 405,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.0675,
+    "developer": 0.1433,
+    "resident": 0.7862,
+    "unknown": 0.0029
+   },
+   "shares_count": {
+    "state": 0.1244,
+    "developer": 0.0222,
+    "resident": 0.8453,
+    "unknown": 0.0081
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 40197302.9,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 405,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->resident": 40197302.9
+   },
+   "fingerprint": {
+    "n": 1849.0,
+    "far": 3.2602,
+    "coverage": 0.1793,
+    "h_mean": 41.1271,
+    "h_max": 606.0,
+    "h_cv": 1.2902,
+    "grain": 418.8193,
+    "slender": 1.3013,
+    "concentration": 0.3171
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "resident_retain_B": {
+   "grow": "resident",
+   "target": 0.75,
+   "mode": "grow",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.7536,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 446,
+   "acquired_n": 426,
+   "gfa_change_pct": -46.72,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1268,
+    "developer": 0.1143,
+    "resident": 0.7536,
+    "unknown": 0.0054
+   },
+   "shares_count": {
+    "state": 0.1244,
+    "developer": 0.0108,
+    "resident": 0.8567,
+    "unknown": 0.0081
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 46685348.3,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 426,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->resident": 46685348.3
+   },
+   "fingerprint": {
+    "n": 1849.0,
+    "far": 1.7369,
+    "coverage": 0.1793,
+    "h_mean": 30.3034,
+    "h_max": 420.0,
+    "h_cv": 1.0873,
+    "grain": 418.8193,
+    "slender": 1.1993,
+    "concentration": 0.2083
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "shared_commons_A": {
+   "grow": "state",
+   "target": 0.3,
+   "mode": "redistribute",
+   "rule": "value_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.3022,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 446,
+   "acquired_n": 13,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.3022,
+    "developer": 0.4197,
+    "resident": 0.2753,
+    "unknown": 0.0029
+   },
+   "shares_count": {
+    "state": 0.1314,
+    "developer": 0.2342,
+    "resident": 0.6263,
+    "unknown": 0.0081
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 18459411.6,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 13,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->state": 18459411.6
+   },
+   "fingerprint": {
+    "n": 1849.0,
+    "far": 3.2602,
+    "coverage": 0.1793,
+    "h_mean": 41.1271,
+    "h_max": 606.0,
+    "h_cv": 1.2902,
+    "grain": 418.8193,
+    "slender": 1.3013,
+    "concentration": 0.3865
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "shared_commons_B": {
+   "grow": "state",
+   "target": 0.3,
+   "mode": "grow",
+   "rule": "value_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.3013,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 446,
+   "acquired_n": 99,
+   "gfa_change_pct": -43.75,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.3013,
+    "developer": 0.2042,
+    "resident": 0.4894,
+    "unknown": 0.0051
+   },
+   "shares_count": {
+    "state": 0.1779,
+    "developer": 0.1877,
+    "resident": 0.6263,
+    "unknown": 0.0081
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 42435543.8,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 99,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->state": 42435543.8
+   },
+   "fingerprint": {
+    "n": 1849.0,
+    "far": 1.834,
+    "coverage": 0.1793,
+    "h_mean": 32.768,
+    "h_max": 270.0,
+    "h_cv": 0.9844,
+    "grain": 418.8193,
+    "slender": 1.2363,
+    "concentration": 0.1981
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "capital_deepen_A": {
+   "grow": "developer",
+   "target": 0.8,
+   "mode": "redistribute",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.8004,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 1158,
+   "acquired_n": 926,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.0675,
+    "developer": 0.8004,
+    "resident": 0.1292,
+    "unknown": 0.0029
+   },
+   "shares_count": {
+    "state": 0.1244,
+    "developer": 0.742,
+    "resident": 0.1255,
+    "unknown": 0.0081
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 0,
+    "resident": 11495958.2
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 0,
+    "resident": 926
+   },
+   "transfer_matrix": {
+    "resident->developer": 11495958.2
+   },
+   "fingerprint": {
+    "n": 1849.0,
+    "far": 3.2602,
+    "coverage": 0.1793,
+    "h_mean": 41.1271,
+    "h_max": 606.0,
+    "h_cv": 1.2902,
+    "grain": 418.8193,
+    "slender": 1.3013,
+    "concentration": 0.3171
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "capital_deepen_B": {
+   "grow": "developer",
+   "target": 0.8,
+   "mode": "grow",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.8007,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 1158,
+   "acquired_n": 911,
+   "gfa_change_pct": 11.15,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.0608,
+    "developer": 0.8007,
+    "resident": 0.1359,
+    "unknown": 0.0026
+   },
+   "shares_count": {
+    "state": 0.1244,
+    "developer": 0.7339,
+    "resident": 0.1336,
+    "unknown": 0.0081
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 0,
+    "resident": 9772288.3
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 0,
+    "resident": 911
+   },
+   "transfer_matrix": {
+    "resident->developer": 9772288.3
+   },
+   "fingerprint": {
+    "n": 1849.0,
+    "far": 3.6237,
+    "coverage": 0.1793,
+    "h_mean": 53.0843,
+    "h_max": 606.0,
+    "h_cv": 0.9455,
+    "grain": 418.8193,
+    "slender": 2.2847,
+    "concentration": 0.3162
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  }
+ },
+ "caoyang": {
+  "current": {
+   "shares_gfa": {
+    "state": 0.1111,
+    "developer": 0.2069,
+    "resident": 0.6806,
+    "unknown": 0.0015
+   },
+   "shares_count": {
+    "state": 0.0821,
+    "developer": 0.1026,
+    "resident": 0.8088,
+    "unknown": 0.0065
+   },
+   "coverage": 0.2764,
+   "n": 1072,
+   "fingerprint": {
+    "n": 1072.0,
+    "far": 3.1761,
+    "coverage": 0.2764,
+    "h_mean": 34.416,
+    "h_max": 228.0,
+    "h_cv": 0.8126,
+    "grain": 421.7131,
+    "slender": 1.3811,
+    "concentration": 0.1755
+   },
+   "V_total_m3": 23169561.3
+  },
+  "capital_extreme_A": {
+   "grow": "developer",
+   "target": 0.6,
+   "mode": "redistribute",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.6003,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 867,
+   "acquired_n": 597,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1111,
+    "developer": 0.6003,
+    "resident": 0.2872,
+    "unknown": 0.0015
+   },
+   "shares_count": {
+    "state": 0.0821,
+    "developer": 0.6595,
+    "resident": 0.2519,
+    "unknown": 0.0065
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 0,
+    "resident": 9116114.0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 0,
+    "resident": 597
+   },
+   "transfer_matrix": {
+    "resident->developer": 9116114.0
+   },
+   "fingerprint": {
+    "n": 1072.0,
+    "far": 3.1761,
+    "coverage": 0.2764,
+    "h_mean": 34.416,
+    "h_max": 228.0,
+    "h_cv": 0.8126,
+    "grain": 421.7131,
+    "slender": 1.3811,
+    "concentration": 0.1755
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "capital_extreme_B": {
+   "grow": "developer",
+   "target": 0.6,
+   "mode": "grow",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.6001,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 867,
+   "acquired_n": 567,
+   "gfa_change_pct": 7.5,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1033,
+    "developer": 0.6001,
+    "resident": 0.2953,
+    "unknown": 0.0014
+   },
+   "shares_count": {
+    "state": 0.0821,
+    "developer": 0.6315,
+    "resident": 0.2799,
+    "unknown": 0.0065
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 0,
+    "resident": 8415529.2
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 0,
+    "resident": 567
+   },
+   "transfer_matrix": {
+    "resident->developer": 8415529.2
+   },
+   "fingerprint": {
+    "n": 1072.0,
+    "far": 3.4143,
+    "coverage": 0.2764,
+    "h_mean": 38.7884,
+    "h_max": 228.0,
+    "h_cv": 0.6643,
+    "grain": 421.7131,
+    "slender": 1.6926,
+    "concentration": 0.1724
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "state_civic_A": {
+   "grow": "state",
+   "target": 0.3,
+   "mode": "redistribute",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.3033,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 106,
+   "acquired_n": 106,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.3033,
+    "developer": 0.0146,
+    "resident": 0.6806,
+    "unknown": 0.0015
+   },
+   "shares_count": {
+    "state": 0.181,
+    "developer": 0.0037,
+    "resident": 0.8088,
+    "unknown": 0.0065
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 4454985.1,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 106,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->state": 4454985.1
+   },
+   "fingerprint": {
+    "n": 1072.0,
+    "far": 3.1761,
+    "coverage": 0.2764,
+    "h_mean": 34.416,
+    "h_max": 228.0,
+    "h_cv": 0.8126,
+    "grain": 421.7131,
+    "slender": 1.3811,
+    "concentration": 0.1378
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "state_civic_B": {
+   "grow": "state",
+   "target": 0.3,
+   "mode": "grow",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.2337,
+   "target_met": false,
+   "pool_exhausted": true,
+   "pool_size": 106,
+   "acquired_n": 106,
+   "gfa_change_pct": -9.09,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.2337,
+    "developer": 0.016,
+    "resident": 0.7486,
+    "unknown": 0.0016
+   },
+   "shares_count": {
+    "state": 0.181,
+    "developer": 0.0037,
+    "resident": 0.8088,
+    "unknown": 0.0065
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 4454985.1,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 106,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->state": 4454985.1
+   },
+   "fingerprint": {
+    "n": 1072.0,
+    "far": 2.8875,
+    "coverage": 0.2764,
+    "h_mean": 33.5989,
+    "h_max": 228.0,
+    "h_cv": 0.7495,
+    "grain": 421.7131,
+    "slender": 1.4023,
+    "concentration": 0.1473
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "resident_retain_A": {
+   "grow": "resident",
+   "target": 0.75,
+   "mode": "redistribute",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.7583,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 110,
+   "acquired_n": 65,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1111,
+    "developer": 0.1292,
+    "resident": 0.7583,
+    "unknown": 0.0015
+   },
+   "shares_count": {
+    "state": 0.0821,
+    "developer": 0.042,
+    "resident": 0.8694,
+    "unknown": 0.0065
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 1799896.0,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 65,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->resident": 1799896.0
+   },
+   "fingerprint": {
+    "n": 1072.0,
+    "far": 3.1761,
+    "coverage": 0.2764,
+    "h_mean": 34.416,
+    "h_max": 228.0,
+    "h_cv": 0.8126,
+    "grain": 421.7131,
+    "slender": 1.3811,
+    "concentration": 0.1755
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "resident_retain_B": {
+   "grow": "resident",
+   "target": 0.75,
+   "mode": "grow",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.7511,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 110,
+   "acquired_n": 66,
+   "gfa_change_pct": -3.91,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1156,
+    "developer": 0.1318,
+    "resident": 0.7511,
+    "unknown": 0.0015
+   },
+   "shares_count": {
+    "state": 0.0821,
+    "developer": 0.041,
+    "resident": 0.8703,
+    "unknown": 0.0065
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 1859392.2,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 66,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->resident": 1859392.2
+   },
+   "fingerprint": {
+    "n": 1072.0,
+    "far": 3.0517,
+    "coverage": 0.2764,
+    "h_mean": 33.7248,
+    "h_max": 228.0,
+    "h_cv": 0.8116,
+    "grain": 421.7131,
+    "slender": 1.3563,
+    "concentration": 0.1769
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "shared_commons_A": {
+   "grow": "state",
+   "target": 0.3,
+   "mode": "redistribute",
+   "rule": "value_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.3004,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 110,
+   "acquired_n": 46,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.3004,
+    "developer": 0.0175,
+    "resident": 0.6806,
+    "unknown": 0.0015
+   },
+   "shares_count": {
+    "state": 0.125,
+    "developer": 0.0597,
+    "resident": 0.8088,
+    "unknown": 0.0065
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 4387494.8,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 46,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->state": 4387494.8
+   },
+   "fingerprint": {
+    "n": 1072.0,
+    "far": 3.1761,
+    "coverage": 0.2764,
+    "h_mean": 34.416,
+    "h_max": 228.0,
+    "h_cv": 0.8126,
+    "grain": 421.7131,
+    "slender": 1.3811,
+    "concentration": 0.1433
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "shared_commons_B": {
+   "grow": "state",
+   "target": 0.3,
+   "mode": "grow",
+   "rule": "value_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.2484,
+   "target_met": false,
+   "pool_exhausted": true,
+   "pool_size": 110,
+   "acquired_n": 110,
+   "gfa_change_pct": -9.25,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.2484,
+    "developer": 0.0,
+    "resident": 0.75,
+    "unknown": 0.0016
+   },
+   "shares_count": {
+    "state": 0.1847,
+    "developer": 0.0,
+    "resident": 0.8088,
+    "unknown": 0.0065
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 4792911.7,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 110,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->state": 4792911.7
+   },
+   "fingerprint": {
+    "n": 1072.0,
+    "far": 2.8824,
+    "coverage": 0.2764,
+    "h_mean": 32.7034,
+    "h_max": 228.0,
+    "h_cv": 0.7695,
+    "grain": 421.7131,
+    "slender": 1.3355,
+    "concentration": 0.1475
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "capital_deepen_A": {
+   "grow": "developer",
+   "target": 0.8,
+   "mode": "redistribute",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.8002,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 867,
+   "acquired_n": 804,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1111,
+    "developer": 0.8002,
+    "resident": 0.0873,
+    "unknown": 0.0015
+   },
+   "shares_count": {
+    "state": 0.0821,
+    "developer": 0.8526,
+    "resident": 0.0588,
+    "unknown": 0.0065
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 0,
+    "resident": 13747053.4
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 0,
+    "resident": 804
+   },
+   "transfer_matrix": {
+    "resident->developer": 13747053.4
+   },
+   "fingerprint": {
+    "n": 1072.0,
+    "far": 3.1761,
+    "coverage": 0.2764,
+    "h_mean": 34.416,
+    "h_max": 228.0,
+    "h_cv": 0.8126,
+    "grain": 421.7131,
+    "slender": 1.3811,
+    "concentration": 0.1755
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "capital_deepen_B": {
+   "grow": "developer",
+   "target": 0.8,
+   "mode": "grow",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.8001,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 867,
+   "acquired_n": 764,
+   "gfa_change_pct": 8.82,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1021,
+    "developer": 0.8001,
+    "resident": 0.0965,
+    "unknown": 0.0013
+   },
+   "shares_count": {
+    "state": 0.0821,
+    "developer": 0.8153,
+    "resident": 0.0961,
+    "unknown": 0.0065
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 0,
+    "resident": 13335303.9
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 0,
+    "resident": 764
+   },
+   "transfer_matrix": {
+    "resident->developer": 13335303.9
+   },
+   "fingerprint": {
+    "n": 1072.0,
+    "far": 3.4563,
+    "coverage": 0.2764,
+    "h_mean": 39.5251,
+    "h_max": 228.0,
+    "h_cv": 0.6415,
+    "grain": 421.7131,
+    "slender": 1.7333,
+    "concentration": 0.1753
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "negotiation": {
+   "v1_state_proposal": {
+    "grow": "state",
+    "target": 0.25,
+    "mode": "grow",
+    "rule": "weak_first",
+    "gamma": "base",
+    "envelope_m": 60.0,
+    "far_mult": 1.0,
+    "share_reached": 0.2337,
+    "target_met": false,
+    "pool_exhausted": true,
+    "pool_size": 106,
+    "acquired_n": 106,
+    "gfa_change_pct": -9.09,
+    "envelope_bind_n": 0,
+    "envelope_clipped_gfa": 0.0,
+    "shares_gfa": {
+     "state": 0.2337,
+     "developer": 0.016,
+     "resident": 0.7486,
+     "unknown": 0.0016
+    },
+    "shares_count": {
+     "state": 0.181,
+     "developer": 0.0037,
+     "resident": 0.8088,
+     "unknown": 0.0065
+    },
+    "displacement_gfa": {
+     "state": 0,
+     "developer": 4454985.1,
+     "resident": 0
+    },
+    "displaced_n": {
+     "state": 0,
+     "developer": 106,
+     "resident": 0
+    },
+    "transfer_matrix": {
+     "developer->state": 4454985.1
+    },
+    "fingerprint": {
+     "n": 1072.0,
+     "far": 2.8875,
+     "coverage": 0.2764,
+     "h_mean": 33.5989,
+     "h_max": 228.0,
+     "h_cv": 0.7495,
+     "grain": 421.7131,
+     "slender": 1.4023,
+     "concentration": 0.1473
+    },
+    "frozen_by_construction": [
+     "coverage",
+     "grain",
+     "n"
+    ]
+   },
+   "v2_resident_counter": {
+    "grow": "resident",
+    "target": 0.72,
+    "mode": "redistribute",
+    "rule": "weak_first",
+    "gamma": "base",
+    "envelope_m": 60.0,
+    "far_mult": 1.0,
+    "share_reached": 0.7208,
+    "target_met": true,
+    "pool_exhausted": false,
+    "pool_size": 110,
+    "acquired_n": 54,
+    "gfa_change_pct": 0.0,
+    "envelope_bind_n": 0,
+    "envelope_clipped_gfa": 0.0,
+    "shares_gfa": {
+     "state": 0.1111,
+     "developer": 0.1667,
+     "resident": 0.7208,
+     "unknown": 0.0015
+    },
+    "shares_count": {
+     "state": 0.0821,
+     "developer": 0.0522,
+     "resident": 0.8591,
+     "unknown": 0.0065
+    },
+    "displacement_gfa": {
+     "state": 0,
+     "developer": 929896.9,
+     "resident": 0
+    },
+    "displaced_n": {
+     "state": 0,
+     "developer": 54,
+     "resident": 0
+    },
+    "transfer_matrix": {
+     "developer->resident": 929896.9
+    },
+    "fingerprint": {
+     "n": 1072.0,
+     "far": 3.1761,
+     "coverage": 0.2764,
+     "h_mean": 34.416,
+     "h_max": 228.0,
+     "h_cv": 0.8126,
+     "grain": 421.7131,
+     "slender": 1.3811,
+     "concentration": 0.1755
+    },
+    "frozen_by_construction": [
+     "coverage",
+     "grain",
+     "n"
+    ]
+   },
+   "v3_shared_ground": {
+    "grow": "state",
+    "target": 0.3,
+    "mode": "grow",
+    "rule": "value_first",
+    "gamma": "base",
+    "envelope_m": 60.0,
+    "far_mult": 1.0,
+    "share_reached": 0.2484,
+    "target_met": false,
+    "pool_exhausted": true,
+    "pool_size": 110,
+    "acquired_n": 110,
+    "gfa_change_pct": -9.25,
+    "envelope_bind_n": 0,
+    "envelope_clipped_gfa": 0.0,
+    "shares_gfa": {
+     "state": 0.2484,
+     "developer": 0.0,
+     "resident": 0.75,
+     "unknown": 0.0016
+    },
+    "shares_count": {
+     "state": 0.1847,
+     "developer": 0.0,
+     "resident": 0.8088,
+     "unknown": 0.0065
+    },
+    "displacement_gfa": {
+     "state": 0,
+     "developer": 4792911.7,
+     "resident": 0
+    },
+    "displaced_n": {
+     "state": 0,
+     "developer": 110,
+     "resident": 0
+    },
+    "transfer_matrix": {
+     "developer->state": 4792911.7
+    },
+    "fingerprint": {
+     "n": 1072.0,
+     "far": 2.8824,
+     "coverage": 0.2764,
+     "h_mean": 32.7034,
+     "h_max": 228.0,
+     "h_cv": 0.7695,
+     "grain": 421.7131,
+     "slender": 1.3355,
+     "concentration": 0.1475
+    },
+    "frozen_by_construction": [
+     "coverage",
+     "grain",
+     "n"
+    ]
+   }
+  }
+ },
+ "laoximen": {
+  "current": {
+   "shares_gfa": {
+    "state": 0.1434,
+    "developer": 0.2643,
+    "resident": 0.589,
+    "unknown": 0.0034
+   },
+   "shares_count": {
+    "state": 0.0856,
+    "developer": 0.0899,
+    "resident": 0.7985,
+    "unknown": 0.026
+   },
+   "coverage": 0.3705,
+   "n": 923,
+   "fingerprint": {
+    "n": 923.0,
+    "far": 3.7192,
+    "coverage": 0.3705,
+    "h_mean": 27.2958,
+    "h_max": 198.0,
+    "h_cv": 1.2336,
+    "grain": 348.9105,
+    "slender": 0.9409,
+    "concentration": 0.1815
+   },
+   "V_total_m3": 15763592.2
+  },
+  "capital_extreme_A": {
+   "grow": "developer",
+   "target": 0.6,
+   "mode": "redistribute",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.6001,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 737,
+   "acquired_n": 417,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1434,
+    "developer": 0.6001,
+    "resident": 0.2531,
+    "unknown": 0.0034
+   },
+   "shares_count": {
+    "state": 0.0856,
+    "developer": 0.5417,
+    "resident": 0.3467,
+    "unknown": 0.026
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 0,
+    "resident": 5294265.0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 0,
+    "resident": 417
+   },
+   "transfer_matrix": {
+    "resident->developer": 5294265.0
+   },
+   "fingerprint": {
+    "n": 923.0,
+    "far": 3.7192,
+    "coverage": 0.3705,
+    "h_mean": 27.2958,
+    "h_max": 198.0,
+    "h_cv": 1.2336,
+    "grain": 348.9105,
+    "slender": 0.9409,
+    "concentration": 0.1815
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "capital_extreme_B": {
+   "grow": "developer",
+   "target": 0.6,
+   "mode": "grow",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.6003,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 737,
+   "acquired_n": 397,
+   "gfa_change_pct": 6.23,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.135,
+    "developer": 0.6003,
+    "resident": 0.2616,
+    "unknown": 0.0032
+   },
+   "shares_count": {
+    "state": 0.0856,
+    "developer": 0.52,
+    "resident": 0.3684,
+    "unknown": 0.026
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 0,
+    "resident": 4904407.4
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 0,
+    "resident": 397
+   },
+   "transfer_matrix": {
+    "resident->developer": 4904407.4
+   },
+   "fingerprint": {
+    "n": 923.0,
+    "far": 3.9509,
+    "coverage": 0.3705,
+    "h_mean": 30.4543,
+    "h_max": 198.0,
+    "h_cv": 1.0716,
+    "grain": 348.9105,
+    "slender": 1.2043,
+    "concentration": 0.1751
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "state_civic_A": {
+   "grow": "state",
+   "target": 0.3,
+   "mode": "redistribute",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.2774,
+   "target_met": false,
+   "pool_exhausted": true,
+   "pool_size": 45,
+   "acquired_n": 45,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.2774,
+    "developer": 0.1303,
+    "resident": 0.589,
+    "unknown": 0.0034
+   },
+   "shares_count": {
+    "state": 0.1343,
+    "developer": 0.0412,
+    "resident": 0.7985,
+    "unknown": 0.026
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 2112494.7,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 45,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->state": 2112494.7
+   },
+   "fingerprint": {
+    "n": 923.0,
+    "far": 3.7192,
+    "coverage": 0.3705,
+    "h_mean": 27.2958,
+    "h_max": 198.0,
+    "h_cv": 1.2336,
+    "grain": 348.9105,
+    "slender": 0.9409,
+    "concentration": 0.1958
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "state_civic_B": {
+   "grow": "state",
+   "target": 0.3,
+   "mode": "grow",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.2203,
+   "target_met": false,
+   "pool_exhausted": true,
+   "pool_size": 45,
+   "acquired_n": 45,
+   "gfa_change_pct": -7.32,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.2203,
+    "developer": 0.1406,
+    "resident": 0.6355,
+    "unknown": 0.0036
+   },
+   "shares_count": {
+    "state": 0.1343,
+    "developer": 0.0412,
+    "resident": 0.7985,
+    "unknown": 0.026
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 2112494.7,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 45,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->state": 2112494.7
+   },
+   "fingerprint": {
+    "n": 923.0,
+    "far": 3.4468,
+    "coverage": 0.3705,
+    "h_mean": 25.8039,
+    "h_max": 198.0,
+    "h_cv": 1.2013,
+    "grain": 348.9105,
+    "slender": 0.9409,
+    "concentration": 0.1653
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "resident_retain_A": {
+   "grow": "resident",
+   "target": 0.75,
+   "mode": "redistribute",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.7537,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 83,
+   "acquired_n": 58,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1434,
+    "developer": 0.0995,
+    "resident": 0.7537,
+    "unknown": 0.0034
+   },
+   "shares_count": {
+    "state": 0.0856,
+    "developer": 0.0271,
+    "resident": 0.8613,
+    "unknown": 0.026
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 2596838.8,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 58,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->resident": 2596838.8
+   },
+   "fingerprint": {
+    "n": 923.0,
+    "far": 3.7192,
+    "coverage": 0.3705,
+    "h_mean": 27.2958,
+    "h_max": 198.0,
+    "h_cv": 1.2336,
+    "grain": 348.9105,
+    "slender": 0.9409,
+    "concentration": 0.1815
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "resident_retain_B": {
+   "grow": "resident",
+   "target": 0.75,
+   "mode": "grow",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.7556,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 83,
+   "acquired_n": 73,
+   "gfa_change_pct": -12.92,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1646,
+    "developer": 0.0759,
+    "resident": 0.7556,
+    "unknown": 0.0039
+   },
+   "shares_count": {
+    "state": 0.0856,
+    "developer": 0.0108,
+    "resident": 0.8776,
+    "unknown": 0.026
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 3124034.2,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 73,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->resident": 3124034.2
+   },
+   "fingerprint": {
+    "n": 923.0,
+    "far": 3.2387,
+    "coverage": 0.3705,
+    "h_mean": 24.9036,
+    "h_max": 198.0,
+    "h_cv": 1.2415,
+    "grain": 348.9105,
+    "slender": 0.8916,
+    "concentration": 0.1824
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "shared_commons_A": {
+   "grow": "state",
+   "target": 0.3,
+   "mode": "redistribute",
+   "rule": "value_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.304,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 83,
+   "acquired_n": 20,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.304,
+    "developer": 0.1036,
+    "resident": 0.589,
+    "unknown": 0.0034
+   },
+   "shares_count": {
+    "state": 0.1073,
+    "developer": 0.0683,
+    "resident": 0.7985,
+    "unknown": 0.026
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 2532801.5,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 20,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->state": 2532801.5
+   },
+   "fingerprint": {
+    "n": 923.0,
+    "far": 3.7192,
+    "coverage": 0.3705,
+    "h_mean": 27.2958,
+    "h_max": 198.0,
+    "h_cv": 1.2336,
+    "grain": 348.9105,
+    "slender": 0.9409,
+    "concentration": 0.2
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "shared_commons_B": {
+   "grow": "state",
+   "target": 0.3,
+   "mode": "grow",
+   "rule": "value_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.2952,
+   "target_met": false,
+   "pool_exhausted": true,
+   "pool_size": 83,
+   "acquired_n": 83,
+   "gfa_change_pct": -15.96,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.2952,
+    "developer": 0.0,
+    "resident": 0.7008,
+    "unknown": 0.004
+   },
+   "shares_count": {
+    "state": 0.1755,
+    "developer": 0.0,
+    "resident": 0.7985,
+    "unknown": 0.026
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 4165972.2,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 83,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->state": 4165972.2
+   },
+   "fingerprint": {
+    "n": 923.0,
+    "far": 3.1257,
+    "coverage": 0.3705,
+    "h_mean": 24.169,
+    "h_max": 192.0,
+    "h_cv": 1.1807,
+    "grain": 348.9105,
+    "slender": 0.9208,
+    "concentration": 0.1909
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "capital_deepen_A": {
+   "grow": "developer",
+   "target": 0.8,
+   "mode": "redistribute",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.8068,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 737,
+   "acquired_n": 722,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1434,
+    "developer": 0.8068,
+    "resident": 0.0465,
+    "unknown": 0.0034
+   },
+   "shares_count": {
+    "state": 0.0856,
+    "developer": 0.8722,
+    "resident": 0.0163,
+    "unknown": 0.026
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 0,
+    "resident": 8551906.1
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 0,
+    "resident": 722
+   },
+   "transfer_matrix": {
+    "resident->developer": 8551906.1
+   },
+   "fingerprint": {
+    "n": 923.0,
+    "far": 3.7192,
+    "coverage": 0.3705,
+    "h_mean": 27.2958,
+    "h_max": 198.0,
+    "h_cv": 1.2336,
+    "grain": 348.9105,
+    "slender": 0.9409,
+    "concentration": 0.1815
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "capital_deepen_B": {
+   "grow": "developer",
+   "target": 0.8,
+   "mode": "grow",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.8007,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 737,
+   "acquired_n": 709,
+   "gfa_change_pct": 13.22,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1266,
+    "developer": 0.8007,
+    "resident": 0.0697,
+    "unknown": 0.003
+   },
+   "shares_count": {
+    "state": 0.0856,
+    "developer": 0.8581,
+    "resident": 0.0303,
+    "unknown": 0.026
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 0,
+    "resident": 8040157.9
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 0,
+    "resident": 709
+   },
+   "transfer_matrix": {
+    "resident->developer": 8040157.9
+   },
+   "fingerprint": {
+    "n": 923.0,
+    "far": 4.2109,
+    "coverage": 0.3705,
+    "h_mean": 33.265,
+    "h_max": 198.0,
+    "h_cv": 0.9463,
+    "grain": 348.9105,
+    "slender": 1.428,
+    "concentration": 0.1718
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  }
+ },
+ "dapuqiao": {
+  "current": {
+   "shares_gfa": {
+    "state": 0.1588,
+    "developer": 0.3559,
+    "resident": 0.4835,
+    "unknown": 0.0018
+   },
+   "shares_count": {
+    "state": 0.1236,
+    "developer": 0.2395,
+    "resident": 0.6166,
+    "unknown": 0.0204
+   },
+   "coverage": 0.318,
+   "n": 785,
+   "fingerprint": {
+    "n": 785.0,
+    "far": 4.2821,
+    "coverage": 0.318,
+    "h_mean": 39.5465,
+    "h_max": 312.0,
+    "h_cv": 1.111,
+    "grain": 441.352,
+    "slender": 1.1369,
+    "concentration": 0.3292
+   },
+   "V_total_m3": 23794091.2
+  },
+  "capital_extreme_A": {
+   "grow": "developer",
+   "target": 0.6,
+   "mode": "redistribute",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.6008,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 484,
+   "acquired_n": 277,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1588,
+    "developer": 0.6008,
+    "resident": 0.2387,
+    "unknown": 0.0018
+   },
+   "shares_count": {
+    "state": 0.1236,
+    "developer": 0.5924,
+    "resident": 0.2637,
+    "unknown": 0.0204
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 0,
+    "resident": 5825941.4
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 0,
+    "resident": 277
+   },
+   "transfer_matrix": {
+    "resident->developer": 5825941.4
+   },
+   "fingerprint": {
+    "n": 785.0,
+    "far": 4.2821,
+    "coverage": 0.318,
+    "h_mean": 39.5465,
+    "h_max": 312.0,
+    "h_cv": 1.111,
+    "grain": 441.352,
+    "slender": 1.1369,
+    "concentration": 0.3292
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "capital_extreme_B": {
+   "grow": "developer",
+   "target": 0.6,
+   "mode": "grow",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.6004,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 484,
+   "acquired_n": 270,
+   "gfa_change_pct": 3.16,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1539,
+    "developer": 0.6004,
+    "resident": 0.2439,
+    "unknown": 0.0017
+   },
+   "shares_count": {
+    "state": 0.1236,
+    "developer": 0.5834,
+    "resident": 0.2726,
+    "unknown": 0.0204
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 0,
+    "resident": 5517532.7
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 0,
+    "resident": 270
+   },
+   "transfer_matrix": {
+    "resident->developer": 5517532.7
+   },
+   "fingerprint": {
+    "n": 785.0,
+    "far": 4.4174,
+    "coverage": 0.318,
+    "h_mean": 42.3769,
+    "h_max": 312.0,
+    "h_cv": 1.0052,
+    "grain": 441.352,
+    "slender": 1.3747,
+    "concentration": 0.3239
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "state_civic_A": {
+   "grow": "state",
+   "target": 0.3,
+   "mode": "redistribute",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.301,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 173,
+   "acquired_n": 124,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.301,
+    "developer": 0.2137,
+    "resident": 0.4835,
+    "unknown": 0.0018
+   },
+   "shares_count": {
+    "state": 0.2815,
+    "developer": 0.0815,
+    "resident": 0.6166,
+    "unknown": 0.0204
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 3384207.0,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 124,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->state": 3384207.0
+   },
+   "fingerprint": {
+    "n": 785.0,
+    "far": 4.2821,
+    "coverage": 0.318,
+    "h_mean": 39.5465,
+    "h_max": 312.0,
+    "h_cv": 1.111,
+    "grain": 441.352,
+    "slender": 1.1369,
+    "concentration": 0.3372
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "state_civic_B": {
+   "grow": "state",
+   "target": 0.3,
+   "mode": "grow",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.3002,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 173,
+   "acquired_n": 139,
+   "gfa_change_pct": -9.27,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.3002,
+    "developer": 0.1649,
+    "resident": 0.5329,
+    "unknown": 0.002
+   },
+   "shares_count": {
+    "state": 0.3006,
+    "developer": 0.0624,
+    "resident": 0.6166,
+    "unknown": 0.0204
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 4909366.0,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 139,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->state": 4909366.0
+   },
+   "fingerprint": {
+    "n": 785.0,
+    "far": 3.885,
+    "coverage": 0.318,
+    "h_mean": 37.4713,
+    "h_max": 312.0,
+    "h_cv": 1.0673,
+    "grain": 441.352,
+    "slender": 1.1899,
+    "concentration": 0.2977
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "resident_retain_A": {
+   "grow": "resident",
+   "target": 0.75,
+   "mode": "redistribute",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.7519,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 188,
+   "acquired_n": 159,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1588,
+    "developer": 0.0875,
+    "resident": 0.7519,
+    "unknown": 0.0018
+   },
+   "shares_count": {
+    "state": 0.1236,
+    "developer": 0.0369,
+    "resident": 0.8191,
+    "unknown": 0.0204
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 6385642.8,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 159,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->resident": 6385642.8
+   },
+   "fingerprint": {
+    "n": 785.0,
+    "far": 4.2821,
+    "coverage": 0.318,
+    "h_mean": 39.5465,
+    "h_max": 312.0,
+    "h_cv": 1.111,
+    "grain": 441.352,
+    "slender": 1.1369,
+    "concentration": 0.3292
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "resident_retain_B": {
+   "grow": "resident",
+   "target": 0.75,
+   "mode": "grow",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.7527,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 188,
+   "acquired_n": 175,
+   "gfa_change_pct": -18.67,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1953,
+    "developer": 0.0498,
+    "resident": 0.7527,
+    "unknown": 0.0022
+   },
+   "shares_count": {
+    "state": 0.1236,
+    "developer": 0.0166,
+    "resident": 0.8395,
+    "unknown": 0.0204
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 7504713.3,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 175,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->resident": 7504713.3
+   },
+   "fingerprint": {
+    "n": 785.0,
+    "far": 3.4825,
+    "coverage": 0.318,
+    "h_mean": 34.028,
+    "h_max": 312.0,
+    "h_cv": 1.1582,
+    "grain": 441.352,
+    "slender": 1.0249,
+    "concentration": 0.3308
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "shared_commons_A": {
+   "grow": "state",
+   "target": 0.3,
+   "mode": "redistribute",
+   "rule": "value_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.3066,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 188,
+   "acquired_n": 12,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.3066,
+    "developer": 0.2081,
+    "resident": 0.4835,
+    "unknown": 0.0018
+   },
+   "shares_count": {
+    "state": 0.1389,
+    "developer": 0.2242,
+    "resident": 0.6166,
+    "unknown": 0.0204
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 3515814.6,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 12,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->state": 3515814.6
+   },
+   "fingerprint": {
+    "n": 785.0,
+    "far": 4.2821,
+    "coverage": 0.318,
+    "h_mean": 39.5465,
+    "h_max": 312.0,
+    "h_cv": 1.111,
+    "grain": 441.352,
+    "slender": 1.1369,
+    "concentration": 0.3326
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "shared_commons_B": {
+   "grow": "state",
+   "target": 0.3,
+   "mode": "grow",
+   "rule": "value_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.3003,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 188,
+   "acquired_n": 39,
+   "gfa_change_pct": -16.11,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.3003,
+    "developer": 0.1212,
+    "resident": 0.5763,
+    "unknown": 0.0021
+   },
+   "shares_count": {
+    "state": 0.1732,
+    "developer": 0.1898,
+    "resident": 0.6166,
+    "unknown": 0.0204
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 6049624.5,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 39,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->state": 6049624.5
+   },
+   "fingerprint": {
+    "n": 785.0,
+    "far": 3.5923,
+    "coverage": 0.318,
+    "h_mean": 35.0064,
+    "h_max": 240.0,
+    "h_cv": 1.0759,
+    "grain": 441.352,
+    "slender": 1.0939,
+    "concentration": 0.2987
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "capital_deepen_A": {
+   "grow": "developer",
+   "target": 0.8,
+   "mode": "redistribute",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.8011,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 484,
+   "acquired_n": 465,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1588,
+    "developer": 0.8011,
+    "resident": 0.0383,
+    "unknown": 0.0018
+   },
+   "shares_count": {
+    "state": 0.1236,
+    "developer": 0.8318,
+    "resident": 0.0242,
+    "unknown": 0.0204
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 0,
+    "resident": 10592164.3
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 0,
+    "resident": 465
+   },
+   "transfer_matrix": {
+    "resident->developer": 10592164.3
+   },
+   "fingerprint": {
+    "n": 785.0,
+    "far": 4.2821,
+    "coverage": 0.318,
+    "h_mean": 39.5465,
+    "h_max": 312.0,
+    "h_cv": 1.111,
+    "grain": 441.352,
+    "slender": 1.1369,
+    "concentration": 0.3292
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "capital_deepen_B": {
+   "grow": "developer",
+   "target": 0.8,
+   "mode": "grow",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.8005,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 484,
+   "acquired_n": 460,
+   "gfa_change_pct": 5.44,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1506,
+    "developer": 0.8005,
+    "resident": 0.0472,
+    "unknown": 0.0017
+   },
+   "shares_count": {
+    "state": 0.1236,
+    "developer": 0.8255,
+    "resident": 0.0306,
+    "unknown": 0.0204
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 0,
+    "resident": 10321118.7
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 0,
+    "resident": 460
+   },
+   "transfer_matrix": {
+    "resident->developer": 10321118.7
+   },
+   "fingerprint": {
+    "n": 785.0,
+    "far": 4.5152,
+    "coverage": 0.318,
+    "h_mean": 44.2321,
+    "h_max": 312.0,
+    "h_cv": 0.941,
+    "grain": 441.352,
+    "slender": 1.5516,
+    "concentration": 0.3215
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  }
+ },
+ "yuyuan": {
+  "current": {
+   "shares_gfa": {
+    "state": 0.1249,
+    "developer": 0.3633,
+    "resident": 0.5092,
+    "unknown": 0.0026
+   },
+   "shares_count": {
+    "state": 0.0794,
+    "developer": 0.2234,
+    "resident": 0.6825,
+    "unknown": 0.0147
+   },
+   "coverage": 0.3623,
+   "n": 819,
+   "fingerprint": {
+    "n": 819.0,
+    "far": 2.993,
+    "coverage": 0.3623,
+    "h_mean": 22.0,
+    "h_max": 192.0,
+    "h_cv": 1.2027,
+    "grain": 355.0031,
+    "slender": 0.8652,
+    "concentration": 0.1984
+   },
+   "V_total_m3": 12538875.7
+  },
+  "capital_extreme_A": {
+   "grow": "developer",
+   "target": 0.6,
+   "mode": "redistribute",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.6056,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 559,
+   "acquired_n": 284,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1249,
+    "developer": 0.6056,
+    "resident": 0.2669,
+    "unknown": 0.0026
+   },
+   "shares_count": {
+    "state": 0.0794,
+    "developer": 0.5702,
+    "resident": 0.3358,
+    "unknown": 0.0147
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 0,
+    "resident": 3038332.4
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 0,
+    "resident": 284
+   },
+   "transfer_matrix": {
+    "resident->developer": 3038332.4
+   },
+   "fingerprint": {
+    "n": 819.0,
+    "far": 2.993,
+    "coverage": 0.3623,
+    "h_mean": 22.0,
+    "h_max": 192.0,
+    "h_cv": 1.2027,
+    "grain": 355.0031,
+    "slender": 0.8652,
+    "concentration": 0.1984
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "capital_extreme_B": {
+   "grow": "developer",
+   "target": 0.6,
+   "mode": "grow",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.601,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 559,
+   "acquired_n": 276,
+   "gfa_change_pct": 7.35,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1163,
+    "developer": 0.601,
+    "resident": 0.2802,
+    "unknown": 0.0024
+   },
+   "shares_count": {
+    "state": 0.0794,
+    "developer": 0.5604,
+    "resident": 0.3455,
+    "unknown": 0.0147
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 0,
+    "resident": 2613053.8
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 0,
+    "resident": 276
+   },
+   "transfer_matrix": {
+    "resident->developer": 2613053.8
+   },
+   "fingerprint": {
+    "n": 819.0,
+    "far": 3.213,
+    "coverage": 0.3623,
+    "h_mean": 24.8349,
+    "h_max": 192.0,
+    "h_cv": 1.0441,
+    "grain": 355.0031,
+    "slender": 1.066,
+    "concentration": 0.1974
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "state_civic_A": {
+   "grow": "state",
+   "target": 0.3,
+   "mode": "redistribute",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.2955,
+   "target_met": false,
+   "pool_exhausted": true,
+   "pool_size": 46,
+   "acquired_n": 46,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.2955,
+    "developer": 0.1927,
+    "resident": 0.5092,
+    "unknown": 0.0026
+   },
+   "shares_count": {
+    "state": 0.1355,
+    "developer": 0.1673,
+    "resident": 0.6825,
+    "unknown": 0.0147
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 2139637.7,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 46,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->state": 2139637.7
+   },
+   "fingerprint": {
+    "n": 819.0,
+    "far": 2.993,
+    "coverage": 0.3623,
+    "h_mean": 22.0,
+    "h_max": 192.0,
+    "h_cv": 1.2027,
+    "grain": 355.0031,
+    "slender": 0.8652,
+    "concentration": 0.172
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "state_civic_B": {
+   "grow": "state",
+   "target": 0.3,
+   "mode": "grow",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.2192,
+   "target_met": false,
+   "pool_exhausted": true,
+   "pool_size": 46,
+   "acquired_n": 46,
+   "gfa_change_pct": -9.77,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.2192,
+    "developer": 0.2136,
+    "resident": 0.5643,
+    "unknown": 0.0029
+   },
+   "shares_count": {
+    "state": 0.1355,
+    "developer": 0.1673,
+    "resident": 0.6825,
+    "unknown": 0.0147
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 2139637.7,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 46,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->state": 2139637.7
+   },
+   "fingerprint": {
+    "n": 819.0,
+    "far": 2.7006,
+    "coverage": 0.3623,
+    "h_mean": 21.1172,
+    "h_max": 192.0,
+    "h_cv": 1.0816,
+    "grain": 355.0031,
+    "slender": 0.8801,
+    "concentration": 0.2102
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "resident_retain_A": {
+   "grow": "resident",
+   "target": 0.75,
+   "mode": "redistribute",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.7518,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 183,
+   "acquired_n": 147,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1249,
+    "developer": 0.1207,
+    "resident": 0.7518,
+    "unknown": 0.0026
+   },
+   "shares_count": {
+    "state": 0.0794,
+    "developer": 0.044,
+    "resident": 0.862,
+    "unknown": 0.0147
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 3042540.5,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 147,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->resident": 3042540.5
+   },
+   "fingerprint": {
+    "n": 819.0,
+    "far": 2.993,
+    "coverage": 0.3623,
+    "h_mean": 22.0,
+    "h_max": 192.0,
+    "h_cv": 1.2027,
+    "grain": 355.0031,
+    "slender": 0.8652,
+    "concentration": 0.1984
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "resident_retain_B": {
+   "grow": "resident",
+   "target": 0.75,
+   "mode": "grow",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.7572,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 183,
+   "acquired_n": 150,
+   "gfa_change_pct": -14.56,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1462,
+    "developer": 0.0936,
+    "resident": 0.7572,
+    "unknown": 0.003
+   },
+   "shares_count": {
+    "state": 0.0794,
+    "developer": 0.0403,
+    "resident": 0.8657,
+    "unknown": 0.0147
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 3552700.7,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 150,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->resident": 3552700.7
+   },
+   "fingerprint": {
+    "n": 819.0,
+    "far": 2.5572,
+    "coverage": 0.3623,
+    "h_mean": 20.2308,
+    "h_max": 192.0,
+    "h_cv": 1.1287,
+    "grain": 355.0031,
+    "slender": 0.8511,
+    "concentration": 0.2239
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "shared_commons_A": {
+   "grow": "state",
+   "target": 0.3,
+   "mode": "redistribute",
+   "rule": "value_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.3009,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 183,
+   "acquired_n": 12,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.3009,
+    "developer": 0.1874,
+    "resident": 0.5092,
+    "unknown": 0.0026
+   },
+   "shares_count": {
+    "state": 0.094,
+    "developer": 0.2088,
+    "resident": 0.6825,
+    "unknown": 0.0147
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 2206510.6,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 12,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->state": 2206510.6
+   },
+   "fingerprint": {
+    "n": 819.0,
+    "far": 2.993,
+    "coverage": 0.3623,
+    "h_mean": 22.0,
+    "h_max": 192.0,
+    "h_cv": 1.2027,
+    "grain": 355.0031,
+    "slender": 0.8652,
+    "concentration": 0.2018
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "shared_commons_B": {
+   "grow": "state",
+   "target": 0.3,
+   "mode": "grow",
+   "rule": "value_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.3002,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 183,
+   "acquired_n": 31,
+   "gfa_change_pct": -13.55,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.3002,
+    "developer": 0.1078,
+    "resident": 0.589,
+    "unknown": 0.003
+   },
+   "shares_count": {
+    "state": 0.1172,
+    "developer": 0.1856,
+    "resident": 0.6825,
+    "unknown": 0.0147
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 3387451.7,
+    "resident": 0
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 31,
+    "resident": 0
+   },
+   "transfer_matrix": {
+    "developer->state": 3387451.7
+   },
+   "fingerprint": {
+    "n": 819.0,
+    "far": 2.5874,
+    "coverage": 0.3623,
+    "h_mean": 20.4396,
+    "h_max": 192.0,
+    "h_cv": 1.1026,
+    "grain": 355.0031,
+    "slender": 0.8487,
+    "concentration": 0.2144
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "capital_deepen_A": {
+   "grow": "developer",
+   "target": 0.8,
+   "mode": "redistribute",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.8002,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 559,
+   "acquired_n": 534,
+   "gfa_change_pct": 0.0,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1249,
+    "developer": 0.8002,
+    "resident": 0.0723,
+    "unknown": 0.0026
+   },
+   "shares_count": {
+    "state": 0.0794,
+    "developer": 0.8755,
+    "resident": 0.0305,
+    "unknown": 0.0147
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 0,
+    "resident": 5478201.1
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 0,
+    "resident": 534
+   },
+   "transfer_matrix": {
+    "resident->developer": 5478201.1
+   },
+   "fingerprint": {
+    "n": 819.0,
+    "far": 2.993,
+    "coverage": 0.3623,
+    "h_mean": 22.0,
+    "h_max": 192.0,
+    "h_cv": 1.2027,
+    "grain": 355.0031,
+    "slender": 0.8652,
+    "concentration": 0.1984
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  },
+  "capital_deepen_B": {
+   "grow": "developer",
+   "target": 0.8,
+   "mode": "grow",
+   "rule": "weak_first",
+   "gamma": "base",
+   "envelope_m": 60.0,
+   "far_mult": 1.0,
+   "share_reached": 0.8002,
+   "target_met": true,
+   "pool_exhausted": false,
+   "pool_size": 559,
+   "acquired_n": 496,
+   "gfa_change_pct": 14.15,
+   "envelope_bind_n": 0,
+   "envelope_clipped_gfa": 0.0,
+   "shares_gfa": {
+    "state": 0.1094,
+    "developer": 0.8002,
+    "resident": 0.0881,
+    "unknown": 0.0023
+   },
+   "shares_count": {
+    "state": 0.0794,
+    "developer": 0.8291,
+    "resident": 0.0769,
+    "unknown": 0.0147
+   },
+   "displacement_gfa": {
+    "state": 0,
+    "developer": 0,
+    "resident": 5123674.7
+   },
+   "displaced_n": {
+    "state": 0,
+    "developer": 0,
+    "resident": 496
+   },
+   "transfer_matrix": {
+    "resident->developer": 5123674.7
+   },
+   "fingerprint": {
+    "n": 819.0,
+    "far": 3.4166,
+    "coverage": 0.3623,
+    "h_mean": 27.3511,
+    "h_max": 192.0,
+    "h_cv": 0.9213,
+    "grain": 355.0031,
+    "slender": 1.2102,
+    "concentration": 0.1922
+   },
+   "frozen_by_construction": [
+    "coverage",
+    "grain",
+    "n"
+   ]
+  }
+ }
+}

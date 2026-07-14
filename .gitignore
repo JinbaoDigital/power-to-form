@@ -3,8 +3,15 @@ __pycache__/
 .DS_Store
 .venv/
 # generated at runtime
-data/synthetic/demo/
-experiments/out/
-# raw geodata is NOT re-hosted (Baidu ToS); caches are rebuilt from upstream (see data/README.md)
+archive_v5_5district/data/synthetic/demo/
+archive_v5_5district/experiments/out/
+paper/figs_web/
+engine/out/cake_figs/_embed_cache/
+# --- release policy: raw Baidu-derived geometry is NEVER committed ---
 engine/data/*/buildings.parquet
 *.parquet
+# --- release policy: the interactive viewers inline per-building footprint coordinates,
+#     and the Three.js screenshots carry Esri satellite imagery. Neither is redistributed.
+engine/out/cake_figs/viewer_*.html
+engine/out/cake_figs/viewers_index.html
+engine/out/cake_figs/shot_*.png

@@ -1,0 +1,110 @@
+# scenarios.yaml — the cake model's whole interface.
+# Everything a user of the tool edits lives here. Replaces regimes.yaml (archived, not deleted).
+# Every number below is either QUOTED from a regulation (source given) or an EDITABLE ASSUMPTION,
+# and each one says which. Nothing here is a finding; the findings come out of the runs.
+
+meta:
+  floor_h: 3.5          # m per storey, same as the old engine
+  year_now: 2026
+  age_ref: 70.0         # years; AGE = clamp((year_now - age)/age_ref, 0, 1)
+
+# --- policy table: permitted FAR by EULUC class -------------------------------------------------
+# Sources retrieved 2026-07-12:
+#   [Q1] 上海市控制性详细规划技术准则 (2016), 4.3.3 表4-1 (开发强度分级), effective 2016-12-08
+#   [Q2] 上海市城市规划管理技术规定(土地使用 建筑管理), 表二 (建筑容量控制指标, 高层, 内环内)
+#   [Q3] 综合医院建筑设计规范 建标110-2021 第十七条 ("容积率不宜超过2.0"), delegated to by 技术规定 第十七条
+# 技术规定 第十七条 explicitly declines to set FAR for 科研/院校/中小学/体育场馆/医疗卫生/文化艺术/幼托:
+# those must follow an approved detailed plan. So four of the rows below have NO regulatory source and
+# are declared assumptions. Do not present them as policy.
+# NOTE (important, and quotable): in the densest band 表4-1 reads ">3.0" (residential) and ">5.0"
+# (commercial/office). There is legally NO upper bound there. Any cap is a modelling convention,
+# which is exactly what the regulatory dial gamma makes visible.
+far_allowed:
+  居住用地:      {far: 2.5, source: "QUOTED [Q1] 表4-1 V级基本强度 = 2.5; cross-checked [Q2] 表二 高层内环内 = 2.5"}
+  商务办公用地:  {far: 4.0, source: "QUOTED [Q1] 表4-1 V级 3.5-4.0; cross-checked [Q2] 表二 = 4.0"}
+  商业服务用地:  {far: 4.0, source: "QUOTED [Q1] 表4-1 groups 商业服务业 and 商务办公 in one row"}
+  工业用地:      {far: 2.0, source: "QUOTED [Q2] 表二 (高层); [Q1] 4.5.1 sets a floor of 1.2"}
+  医疗卫生用地:  {far: 2.0, source: "QUOTED [Q3] 建标110-2021 第十七条"}
+  教育科研用地:  {far: 2.0, source: "MIXED: 科研设计 <=4.0 by reference [Q1] 4.5.2; campus has no figure -> assumption"}
+  行政办公用地:  {far: 4.0, source: "ASSUMPTION: no regulatory source; 表二's 办公建筑 row is not stated to cover this class"}
+  体育与文化用地: {far: 1.5, source: "ASSUMPTION: no regulatory source; named in 技术规定 第十七条 as excluded"}
+  公园与绿地用地: {far: 0.1, source: "DERIVED from GB 51192-2016 3.3.2 + 3.3.5 (footprint <=5-7%); not a quoted FAR"}
+  交通场站用地:  {far: 0.5, source: "ASSUMPTION: no regulatory source; absent from both instruments"}
+  _default:      {far: 3.0, source: "ASSUMPTION: fallback for missing or unlisted euluc"}
+
+# --- weakness score (Option A, rent-gap proxy) ---------------------------------------------------
+# weakness = w_age * AGE + w_gap * FAR_GAP, both clamped to [0, 1].
+# FAR_actual_i = coverage_district * h_i / floor_h  (plot boundaries are not in the data, so district
+#   footprint coverage stands in for the plot ratio; declared, editable, and swept in the invariance test)
+# age is right-censored at 1984 and covers only 48-66% of buildings; in Laoximen it is effectively a
+#   constant (mean 1985.2, sd 0.67 years). Missing age -> AGE = 0, the conservative choice: it claims
+#   no weakness rather than inventing it. The alternative (impute median) is run in the invariance test.
+weakness:
+  w_age: 0.5
+  w_gap: 0.5
+  missing_age: zero      # zero | median
+  rule: weak_first       # weak_first | value_first | adjacency_first | random
+
+# --- acquisition gates (who may take from whom) --------------------------------------------------
+gates:
+  developer: {from: [resident], euluc_in: null}
+  state:     {from: [developer], euluc_in: [工业用地, 商务办公用地]}   # land-use convertible stock only
+  resident:  {from: [developer], euluc_in: null}
+
+# --- rebuild logic (mode B only; only acquired buildings are rebuilt; footprint frozen) ----------
+rebuild:
+  kappa: 1.0             # capital aggressiveness on the FAR gap
+  civic_band: [15.0, 30.0]   # m; state converts industrial/office stock to civic scale, big footprint -> low
+  resident_cap: 21.0     # m; residents keep what they take low
+  platform_h: 30.0       # m; the commons flattens what it takes from the top into a platform
+
+# --- regulatory envelope gamma (mode B only) -----------------------------------------------------
+# The old engine hard-coded 480 m. Here the envelope is an explicit dial, and every run reports
+# whether it binds and how much floor area it removes.
+gamma:
+  # far_mult scales the permitted FAR (the dial that legally exists: 表4-1's densest band reads
+  # ">3.0" and ">5.0", i.e. no ceiling at all, so 1.5 stands for that unbounded 特定强度 band).
+  # height_m is an absolute envelope on top of it. Both are reported: how many buildings each binds
+  # on, and how much floor volume it removes.
+  # Why these numbers bite: capital's rebuild target is FAR * floor_h / coverage, which on the real
+  # coverages (0.18 to 0.37) lands between 24 m (Laoximen residential) and 78 m (Lujiazui office).
+  # The old engine's 480 m cap could never bind on a FAR-driven rebuild. These do.
+  strict:     {far_mult: 0.8, height_m: 30.0}
+  base:       {far_mult: 1.0, height_m: 60.0}
+  permissive: {far_mult: 1.5, height_m: 120.0}
+  none:       {far_mult: 1.5, height_m: 100000.0}
+default_gamma: base
+
+# --- scenarios -----------------------------------------------------------------------------------
+# target = the GFA share the growing class is asked to reach. unknown is never touched.
+# Each corner runs twice: mode A (redistribute, ownership only, total GFA conserved) and
+# mode B (grow, acquired buildings rebuilt).
+scenarios:
+  capital_extreme:
+    grow: developer
+    target: 0.60
+    rule: weak_first
+    note: "capital buys its way to 60% of the floor area, taking the weakest resident stock first"
+  capital_deepen:
+    grow: developer
+    target: 0.80
+    rule: weak_first
+    note: "capital pushes past the Lujiazui level. In Lujiazui capital already holds 65.4% of the floor area, so capital_extreme (0.60) acquires nothing there: the district IS already the capital scenario. This target bites everywhere."
+  state_civic:
+    grow: state
+    target: 0.30
+    rule: weak_first
+    note: "the state converts industrial and office stock to civic use; volume falls, ownership rises"
+  resident_retain:
+    grow: resident
+    target: 0.75
+    rule: weak_first
+    note: "residents buy back the weakest developer stock and keep it low"
+  shared_commons:
+    grow: state
+    target: 0.30
+    rule: value_first
+    from_override: [developer]
+    euluc_override: null
+    rebuild_override: platform
+    note: "a public trust takes from the TOP: the tallest and most speculative stock, flattened to a platform"

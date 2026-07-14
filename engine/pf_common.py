@@ -3,7 +3,7 @@ pf_common.py — power_to_form 的契约层(数据接入 + 离散权利 + 通用
 =================================================================
 这是「可教框架」的地基。整条教学流水线 7 步:
   1 选地   subdistrict(name)         街道多边形(非方形、变大小)
-  2 裁切   build_cache / load_buildings  AI实测高度 footprint 裁到街道
+  2 裁切   build_cache / load_buildings  百度建筑高度 footprint 裁到街道
   3 权利   assign_all(级联查表)        一栋 = 一个 stakeholder(EULUC→Function→AOI)
   4 配方   regimes.yaml               选一个权力体制(= 原子算子的配方)   ← operators.py
   5 施加   apply_regime               按序施加算子 → 新形态               ← operators.py
@@ -34,7 +34,7 @@ for _f in ("Arial Unicode MS", "PingFang SC", "Heiti TC", "Hiragino Sans GB"):
 ROOT = Path(__file__).resolve().parent
 SRC = ROOT.parent / "data_collection" / "上海城市数据集"
 JD = SRC / "03-行政区" / "2其他" / "乡镇街道" / "上海市_乡镇边界.shp"
-AI = SRC / "01-建筑轮廓" / "①百度" / "第二版本" / "上海市_百度建筑.shp"  # Baidu building footprints (with per-building height)
+AI = SRC / "01-建筑轮廓" / "①百度" / "第二版本" / "上海市_百度建筑.shp"  # Baidu Maps building footprints v2, with per-building height (project decision 2026-07-08)
 EU = SRC / "09-开源土地利用" / "09-开源土地利用" / "开源建设用地分类" / "Data" / "上海市-开源建设用地.shp"
 FN = SRC / "01-建筑轮廓" / "③其它" / "上海市_建筑-带年份-内测版.shp"
 AOI = SRC / "02-POI&AOI" / "2-AOI" / "AOI-baiduapi" / "SHP" / "上海市_AOI.shp"
@@ -157,14 +157,36 @@ def build_cache(name, slug):
 
 
 def load_buildings(slug):
-    """读缓存 → records 列表 [{geom, h, sh, area, frozen}](operators 的工作单位)。几何 32651。"""
+    """读缓存 → records 列表(operators 与 cake.py 的共同工作单位)。几何 32651。
+
+    附加字段(cake.py 的分蛋糕模型需要;对旧的 operators/measure 惰性,只多几个 key,
+    几何/高度/stakeholder 一字不动,故 metrics_baidu_5districts.json 不受影响,已回归验证):
+      bid              缓存内稳定编号(动迁账清单用)
+      orig_h, orig_sh  冻结的初始高度与初始持有者(算动迁必须用初始值)
+      age              建造/登记年,右删失于 1984,覆盖 48-66%,缺失为 None
+      euluc            EULUC-China 2.0 用地类(FAR 门槛查表)
+      area             footprint 面积 m^2(cake 模型里 footprint 永久冻结)
+    """
     gdf = gpd.read_parquet(DATA / slug / "buildings.parquet")
     if "stakeholder" not in gdf.columns:
         gdf = assign_all(gdf)
+    has = set(gdf.columns)
     recs = []
-    for _, r in gdf.iterrows():
-        recs.append({"geom": r.geometry, "h": float(r["height_m"]),
-                     "sh": r["stakeholder"], "frozen": False})
+    for i, (_, r) in enumerate(gdf.iterrows()):
+        h = float(r["height_m"])
+        age = None
+        if "age" in has:
+            try:
+                a = float(r["age"])
+                age = int(a) if a == a and a > 0 else None
+            except (TypeError, ValueError):
+                age = None
+        eu = r["euluc"] if "euluc" in has else None
+        recs.append({"geom": r.geometry, "h": h, "sh": r["stakeholder"], "frozen": False,
+                     "bid": int(r["bid"]) if "bid" in has else i,
+                     "orig_h": h, "orig_sh": r["stakeholder"], "age": age,
+                     "euluc": eu if isinstance(eu, str) else None,
+                     "area": float(r["area_m2"]) if "area_m2" in has else float(r.geometry.area)})
     return recs
 
 

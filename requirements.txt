@@ -1,5 +1,9 @@
-# Core geospatial + numeric stack (versions tested; >= for flexibility)
-numpy>=1.24
+# reproduce.py --verify needs NOTHING from this list: it reads only JSON and CSV with the standard
+# library, and computes Spearman from average ranks in a dozen lines rather than importing scipy.
+# Everything below is for re-running the engine, which also needs the licensed caches (see README).
+
+# Core numeric + geospatial stack (versions tested; >= for flexibility)
+numpy>=1.24         # the frozen run used numpy 2.0.2; see VALIDATION.md on the AE retrain tolerance
 pandas>=2.0
 geopandas>=1.0
 pyogrio>=0.7
@@ -8,10 +12,14 @@ pyproj>=3.5
 pyarrow>=14
 pyyaml>=6.0
 matplotlib>=3.7
-scipy>=1.10
-diptest>=0.7
-# optional: figure export / satellite basemap / docx build
-contextily>=1.4   # only for render.py satellite context (fig4/3D)
-python-docx>=1.1  # only for paper/build_docx (not required to reproduce numbers)
-jupyter>=1.0        # optional: run notebooks/pipeline_walkthrough.ipynb
-nbconvert>=7.0      # optional: execute the notebook headless
+scikit-learn>=1.3   # PCA in figs_nr10_embed.py (the AE and beta-VAE are plain numpy)
+pillow>=10.0        # figure composition (figs_nr10.py) + paper/build_combined_figs.py
+scipy>=1.10         # engine measure + the archived v5 experiments (NOT needed by --verify)
+diptest>=0.7        # archived v5 experiments only
+
+# optional
+playwright>=1.40    # cake_viewers.py: headless chromium for the viewers (their outputs are not shipped)
+contextily>=1.4     # satellite context in the archived v5 render path
+python-docx>=1.1    # archived v5 docx build
+jupyter>=1.0        # archived v5 notebook
+nbconvert>=7.0      # archived v5 notebook, headless

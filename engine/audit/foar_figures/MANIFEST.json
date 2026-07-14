@@ -1,0 +1,410 @@
+{
+ "$comment": "Machine-readable audit manifest for the FoAR paper figure pipeline (NEXT_RUN_10 / 'cake' run). One record per figure: generating script + function, exact input files with roles, and output path. Hashes are sha256. Paths are relative to the engine root FoAR/engine/ (this file lives at FoAR/engine/audit/foar_figures/MANIFEST.json, so engine root = ../../ from here). See RUNBOOK.md for commands and PROVENANCE.md for data lineage.",
+ "schema": "foar-figure-audit/1",
+ "captured_at": "2026-07-13",
+ "captured_by": "audit scaffolding pass (read-only; no scripts run)",
+ "engine_root": "FoAR/engine",
+ "git_repo": "FoAR/ is a git repository; power_to_form/ is not. This audit lives inside the versioned FoAR tree, beside the code and the paper it documents.",
+ "run_label": "NEXT_RUN_10 (cake), 8 jiedao x (current + 5 scenarios) x modes A/B",
+ "hash_volatility_warning": "figs_nr10*.py were being edited by concurrent agents at capture time (de-editorialization pass). figs_nr10_schematic.py changed under observation (b1ac40e5 -> 00c69bc1) and F5/F6 regenerated at 23:39. Treat the three figs_nr10*.py hashes as a SNAPSHOT to diff against, not a frozen baseline. See RUNBOOK 'SCRIPT SYNC PENDING'. RESOLVED 2026-07-14: all three figure scripts are now pinned to their published versions (see scripts_snapshot).",
+ "scripts": {
+  "figs_nr10.py": {
+   "role": "F1-F4 cross-case figures",
+   "sha256": "efc0e3422cdbb3351973ba989c84367a5829f7728437ebcd50fa2779a3f96fe0",
+   "mtime": "2026-07-13T03:27:37",
+   "bytes": 34748,
+   "status": "SYNCED (hash equals the published version)"
+  },
+  "figs_nr10_schematic.py": {
+   "role": "F5-F6 schematics",
+   "sha256": "45b0fbe282f9709e577ea65c00de15ee5cee26eff011365e996288ba546b88d0",
+   "mtime": "2026-07-14T16:50:53+08:00",
+   "bytes": 24496,
+   "status": "SYNCED 2026-07-14 (refresh pass): re-pinned to commit 3e35bbc 'Figs 1-2 restyled as academic monochrome line art'. The 2026-07-14 snapshot was one commit stale (c0ad6595) while the PUBLISHED Fig. 1 and Fig. 2 are the restyled ones; scripts_snapshot/ and this hash now pin the published version.",
+   "superseded_sha256": "c0ad6595bb43f0d52d861e6150e72dc5d372387c7a0492da917982332e1c4fdb"
+  },
+  "figs_nr10_embed.py": {
+   "role": "E1-E3 supplementary latent-space figures",
+   "sha256": "2990123a15063dc72a07c1533dfcce328ed5a2ba00be3ae792e2321493888241",
+   "mtime": "2026-07-13T02:37:38",
+   "bytes": 31691,
+   "status": "SYNCED (hash equals the published version)"
+  }
+ },
+ "helpers": {
+  "$comment": "Shared modules imported by the figure scripts. A change here changes the figures even if the figure scripts do not change.",
+  "figs_cake.py": "a16e74e04468c22e72ad8ddf83b5a899897ae57154a799006fc76f3c54a6f3a1",
+  "pf_common.py": "a37637e2c75c6dfb5d4339d58c63f236549f2073e6130e46bc25362bf032e5d2",
+  "cake.py": "f1fb40dfa1a5c3b560b30dbc650a1b1b11f47f2326006d748049dc6b21596417",
+  "measure.py": "ab2e5e785cfeed2de4f81c4a970c46b091884aa5876f40b8f06c308a8aa9dc87",
+  "operators.py": "f367d28b097863a7e429a8404a92b48922d448f462388354ed35465c7ff4c5e3"
+ },
+ "upstream_producers": {
+  "$comment": "The figure scripts read only files already on disk. These scripts produced those files and must be run first if the artefacts are absent. run_cake.py + verify_cake.py (the FROZEN five) are the baseline; the *_all / *_nr10 runners extend to eight sites and never touch the frozen files.",
+  "run_cake_all.py": {
+   "sha256": "2522d703102ce5581b616943b63b3d178b7a7dad40e0934a09b126fe95ef808e",
+   "produces": [
+    "out/cake/metrics_cake_all.json",
+    "out/cake/reachable_<slug>.json",
+    "out/cake/ledger_<slug>_<key>.csv",
+    "out/cake/skyline_<slug>.json"
+   ]
+  },
+  "aux_csv_nr10.py": {
+   "sha256": "2613008d5531f5705cb4554e11c03ba42ae14c512818a196b6ae6adc8adf63f4",
+   "produces": [
+    "out/cake/rule_comparison.csv",
+    "out/cake/weakness_dist.csv",
+    "out/cake/gamma_bind.csv",
+    "out/cake/age_layer_stats.csv"
+   ]
+  },
+  "cake_viewers.py": {
+   "sha256": "183e02930b840cff80030e21fd5870947793fe617da963f80244e88057d26813",
+   "produces": [
+    "out/cake_figs/viewer_<slug>.html",
+    "out/cake_figs/shot_<slug>_<cfg>.png",
+    "out/cake_figs/shot_sky_<slug>_<cfg>.png (80 total)"
+   ],
+   "note": "needs headless chromium (playwright); SwiftShader software WebGL so PNGs are reproducible without a GPU"
+  }
+ },
+ "configs": {
+  "config/scenarios.yaml": "faf75c4984439ab4083844dda1ef156c402a595b4be798c80ba56518a2e92f2a",
+  "config/regimes.yaml": "38aa4c7d154ab6b4d8d5316024392b3a18c4d84ebae1659318103ec24555a486",
+  "config/sites.yaml": "7d0fdf7e76c4daba8a3f4e3cd51a5e19dee44518dad7355bae836607e99ea9f4",
+  "config/stakeholder_lookup.yaml": "ae5b029e7012c7e5f06fa45af3e6d7afd8a6e30c129e3b4a1e1179854b8139ed",
+  "config/vignette_recipes.yaml": "183c1401919ad61594c4be66a565eed93f1faa43f11c5b83d2b242f03b3af405"
+ },
+ "frozen_data_inputs": {
+  "$comment": "Small text artefacts hashed so the exact run behind the published figures is pinned. Re-running the figure scripts against these exact files must reproduce the figures.",
+  "out/cake/metrics_cake_all.json": "21149f1639522b89714ccef450f8904c31ae9bce79b862bab0171f931eb91ede",
+  "out/cake/metrics_cake.json": "504c29c1b428856b06ba3a725ef02bcac7943299773cf77958ddc53a16a9319b",
+  "out/cake/gamma_bind.csv": "7d7cd733d6391eca5d98851181cd11e0d54499d01b30c86961339935f74e62ee",
+  "out/cake/rule_comparison.csv": "a576b43e15aa4a4ac60123e49536a6397652d7f49c4bf0b0556210e701607269",
+  "out/cake/weakness_dist.csv": "e769aeff7a6cf6a71928d74636790e53e17dfbeba8dcff14b1bb96c1daa6f126",
+  "out/cake/age_layer_stats.csv": "af2afea88638978332208c395c76e7c13a3b0dc1b92248c2e85862231867950c",
+  "out/cake/reachable_caoyang.json": "cf8b918a1b6023dc7aed38b114cfce3303ba35cbfb28f909561f341bfe889343",
+  "out/cake/reachable_dapuqiao.json": "3c792bf2ab8ec54a1a91dba803bd8b697b0fefd9970784c77c360a00afe61069",
+  "out/cake/reachable_laoximen.json": "a54535b223b8237223fcc7d7c7137f60400f55274db1086654542f11c7e3d491",
+  "out/cake/reachable_lujiazui.json": "9f103870bc69abc2bcb59291fbbd614676ceac7d94954ea592221adfe4fc2eea",
+  "out/cake/reachable_nanjingxi.json": "92432a787cf1287a8427ba3ebab5ddd7c26258fda89a41ee48aa02f2fb2fa3c5",
+  "out/cake/reachable_pengpu.json": "449effe268a84a61bf05364b764ed60d1bdaf81b020aae59a0f5b60997e91f79",
+  "out/cake/reachable_yuyuan.json": "42caa3af587c417174a39f45def3f71a990aa5264dc6637b19773a798c71f780",
+  "out/cake/reachable_zhangjiang.json": "97168da682ab865a7d8e9c95dd255326f10161274d5e22e03076d63b91c1fbcb"
+ },
+ "bulk_inputs_not_hashed": {
+  "$comment": "Large binaries deliberately NOT copied or hashed individually (per the non-duplication rule). Recorded by glob + count + total size only.",
+  "data/<slug>/buildings.parquet": {
+   "count": 8,
+   "total": "1.7M",
+   "role": "per-site clipped footprints + heights + stakeholder, EPSG:32651; via pf_common.load_buildings"
+  },
+  "out/cake_figs/shot_*.png": {
+   "count": 80,
+   "total": "82M",
+   "role": "agent-3d Three.js massing/skyline screenshots (8 sites x 5 configs x 2 views); cropped into F1/F2/F4"
+  },
+  "out/cake/ledger_*.csv": {
+   "count": 83,
+   "role": "per-building take/rebuild ledgers; F5 reads ledger_laoximen_capital_deepen_B.csv"
+  },
+  "out/cake/skyline_*.json": {
+   "count": 8,
+   "role": "per-scenario [bid, height_m, holder]; consumed by cake_viewers.py, not by the figure scripts"
+  }
+ },
+ "figures": [
+  {
+   "id": "F1",
+   "name": "Site atlas: eight fabrics, one ruler",
+   "script": "figs_nr10.py",
+   "function": "f1()",
+   "cmd": "python3 figs_nr10.py f1",
+   "inputs": [
+    {
+     "path": "out/cake/metrics_cake_all.json",
+     "role": "per-site current fingerprint (9 axes), shares_gfa, coverage, V_total"
+    },
+    {
+     "path": "data/<slug>/buildings.parquet",
+     "role": "figure-ground plan (8 sites), coloured by holder",
+     "via": "pf_common.load_buildings"
+    },
+    {
+     "path": "out/cake_figs/shot_sky_<slug>_current.png",
+     "role": "as-found skyline crop (8 sites)"
+    }
+   ],
+   "output": [
+    "out/cake_figs/F1_atlas.png"
+   ]
+  },
+  {
+   "id": "F2",
+   "name": "Same substrate, four power configurations",
+   "script": "figs_nr10.py",
+   "function": "f2('massing') + f2('skyline')",
+   "cmd": "python3 figs_nr10.py f2",
+   "inputs": [
+    {
+     "path": "out/cake/metrics_cake_all.json",
+     "role": "fingerprints, FAR delta, acquired_n, target_met, share_reached per scenario"
+    },
+    {
+     "path": "out/cake_figs/shot_<slug>_<cfg>.png",
+     "role": "massing screenshot, 8x5"
+    },
+    {
+     "path": "out/cake_figs/shot_sky_<slug>_<cfg>.png",
+     "role": "skyline screenshot, 8x5"
+    }
+   ],
+   "output": [
+    "out/cake_figs/F2_gallery.png",
+    "out/cake_figs/F2_gallery_skyline.png"
+   ]
+  },
+  {
+   "id": "F3",
+   "name": "The substrate remembers: fingerprints + Spearman rank preservation",
+   "script": "figs_nr10.py",
+   "function": "f3()",
+   "cmd": "python3 figs_nr10.py f3",
+   "inputs": [
+    {
+     "path": "out/cake/metrics_cake_all.json",
+     "role": "ALL 8 axes x 5 states; Spearman computed in-script (no external stats file)"
+    }
+   ],
+   "output": [
+    "out/cake_figs/F3_fingerprints.png"
+   ]
+  },
+  {
+   "id": "F4",
+   "name": "Morphological reachability: 5x5 target grid + cross-case map",
+   "script": "figs_nr10.py",
+   "function": "f4()",
+   "cmd": "python3 figs_nr10.py f4",
+   "inputs": [
+    {
+     "path": "out/cake/reachable_<slug>.json",
+     "role": "5x5 developer x state target grid, per site (all 8 for F4b; pengpu/zhangjiang/lujiazui for the per-site sheets)"
+    },
+    {
+     "path": "data/<slug>/buildings.parquet",
+     "role": "true easting per building for the 2D height-profile thumbnails",
+     "via": "pf_common.load_buildings"
+    },
+    {
+     "path": "out/cake/metrics_cake_all.json",
+     "role": "header shares/FAR and pool_size"
+    },
+    {
+     "path": "out/cake_figs/shot_sky_<slug>_current.png",
+     "role": "as-found skyline header (per-site sheets)"
+    }
+   ],
+   "output": [
+    "out/cake_figs/F4_reachable_pengpu.png",
+    "out/cake_figs/F4_reachable_zhangjiang.png",
+    "out/cake_figs/F4_reachable_lujiazui.png",
+    "out/cake_figs/F4_reachability_all.png"
+   ]
+  },
+  {
+   "id": "F5",
+   "name": "The tool skeleton: read -> map -> transform -> read-back, swappable lens",
+   "script": "figs_nr10_schematic.py",
+   "function": "f5()",
+   "cmd": "python3 figs_nr10_schematic.py f5",
+   "inputs": [
+    {
+     "path": "out/cake/metrics_cake_all.json",
+     "role": "Laoximen fingerprints/shares/headline numbers printed on the loop"
+    },
+    {
+     "path": "out/cake/ledger_laoximen_capital_deepen_B.csv",
+     "role": "per-building h_after under the installed (developer-led) lens"
+    },
+    {
+     "path": "data/laoximen/buildings.parquet",
+     "role": "923 real footprints for the read/read-back cells (EPSG:32651)",
+     "via": "pf_common.load_buildings"
+    },
+    {
+     "path": "config/scenarios.yaml",
+     "role": "weakness weights",
+     "via": "cake.load_cfg"
+    }
+   ],
+   "output": [
+    "out/cake_figs/F5_loop.png"
+   ]
+  },
+  {
+   "id": "F6",
+   "name": "Seven parameter families vs generative operationalisation (power = the empty cell)",
+   "script": "figs_nr10_schematic.py",
+   "function": "f6()",
+   "cmd": "python3 figs_nr10_schematic.py f6",
+   "inputs": [],
+   "input_note": "PURE SCHEMATIC. No data, no counts, no citations plotted. Reproducible from the script alone.",
+   "output": [
+    "out/cake_figs/F6_parameters.png"
+   ]
+  },
+  {
+   "id": "E1",
+   "name": "PCA of the 21-column metadata vector, coloured by stakeholder",
+   "script": "figs_nr10_embed.py",
+   "function": "e1(prepare())",
+   "cmd": "python3 figs_nr10_embed.py e1",
+   "inputs": [
+    {
+     "path": "data/<slug>/buildings.parquet",
+     "role": "every building of all 8 sites into one feature table (build_table)",
+     "via": "pf_common.load_buildings"
+    },
+    {
+     "path": "config/stakeholder_lookup.yaml",
+     "role": "EULUC -> holder cascade (the reading being visualised)"
+    },
+    {
+     "path": "config/scenarios.yaml",
+     "role": "far_allowed lookup + weakness weights",
+     "via": "cake.load_cfg"
+    }
+   ],
+   "computed": "21-col feature vector (physical 7 + metadata 14) via cake.far_allowed/far_actual/weakness_score + measure coverage; sklearn PCA",
+   "output": [
+    "out/cake_figs/E1_pca_stakeholder.png",
+    "out/cake_figs/E_embed_stats.json"
+   ]
+  },
+  {
+   "id": "E2",
+   "name": "Same PCA embedding read three ways (weakness / EULUC family / entanglement)",
+   "script": "figs_nr10_embed.py",
+   "function": "e2(prepare())",
+   "cmd": "python3 figs_nr10_embed.py e2",
+   "inputs": [
+    {
+     "path": "data/<slug>/buildings.parquet",
+     "role": "same feature table as E1",
+     "via": "pf_common.load_buildings"
+    },
+    {
+     "path": "config/stakeholder_lookup.yaml",
+     "role": "EULUC -> holder cascade"
+    },
+    {
+     "path": "config/scenarios.yaml",
+     "role": "far_allowed lookup + weakness weights"
+    }
+   ],
+   "output": [
+    "out/cake_figs/E2_pca_variants.png"
+   ]
+  },
+  {
+   "id": "E3",
+   "name": "Non-linear bottleneck: autoencoder + beta-VAE vs PCA, and recoverability",
+   "script": "figs_nr10_embed.py",
+   "function": "e3(prepare())",
+   "cmd": "python3 figs_nr10_embed.py e3",
+   "inputs": [
+    {
+     "path": "data/<slug>/buildings.parquet",
+     "role": "same feature table as E1",
+     "via": "pf_common.load_buildings"
+    },
+    {
+     "path": "config/stakeholder_lookup.yaml",
+     "role": "EULUC -> holder cascade"
+    },
+    {
+     "path": "config/scenarios.yaml",
+     "role": "far_allowed lookup + weakness weights"
+    }
+   ],
+   "computed": "numpy autoencoder + numpy beta-VAE (beta=0.05, Adam 2e-3, tanh MLP, SEED=0); 10-NN balanced accuracy, 5-fold CV. Cached under out/cake_figs/_embed_cache/ so a re-draw does not re-train.",
+   "output": [
+    "out/cake_figs/E3_ae_vae.png"
+   ]
+  }
+ ],
+ "verification": {
+  "script": "verify_cake_nr10.py",
+  "sha256": "87aa724d1ba82ce9aae79e0816e8428fcc7d4ea9a702a77ad24908a8787ec779",
+  "cmd": "python3 verify_cake_nr10.py",
+  "checks": 34,
+  "exit": "0 on all-pass, 1 otherwise",
+  "key_gates": [
+   "frozen-five regression: every numeric leaf of metrics_cake.json reproduced from metrics_cake_all.json, max deviation 0.0",
+   "cross-case inversion: zhangjiang developer-led falls short at 0.774 of 0.80; pengpu state-led reaches only 0.063 of 0.30; zhangjiang the only developer-led failure",
+   "reachability: every unreachable cell is state-side; pengpu 20/25 worst, zhangjiang 0/25 best",
+   "envelope inert at base gamma (highest developer rebuild target < 60 m), binds at strict gamma (30 m)",
+   "aux CSV row counts + weak_first ordering-rule lift",
+   "figures/viewers/screenshots on disk: F1..F6 + E1 present >20KB, 8 viewers, 80 shots"
+  ],
+  "companion": "verify_cake.py covers the FROZEN five only; verify_cake_nr10.py is the eight-site superset."
+ },
+ "embed_cache_frozen": [
+  {
+   "$comment": "Canonical FROZEN E-series (E1-E3) trained embeddings. Live producer path out/cake_figs/_embed_cache/ is git-ignored (.gitignore: engine/out/cake_figs/_embed_cache/); THIS tracked copy is the durable one. numpy AE/VAE, seed 0, 450 epochs, numpy 2.0.2. Restore before re-running: cp audit/foar_figures/embed_cache_frozen/*.npy audit/foar_figures/embed_cache_frozen/*.json out/cake_figs/_embed_cache/ ; python3 figs_nr10_embed.py all (loads, does not retrain). Balanced-accuracy rows in E_embed_stats.json derive from these: PCA-2D 0.5720907023642345, AE-2D 0.8884726455700068, VAE-2D 0.9044345480251382, full-D 0.8849834640296838. Bit-stable re-verified 2026-07-14 (E_embed_stats.json sha256 a23c27f5c0929a0e905a0bbbc4dafd8899f8a837429f0df76d51118a7dd1ad21 unchanged). See embed_cache_frozen/README.md.",
+   "seed": 0,
+   "numpy": "2.0.2"
+  },
+  {
+   "path": "audit/foar_figures/embed_cache_frozen/ae_all.npy",
+   "role": "AE 2-D embedding, all 21 features",
+   "sha256": "baeaaafb747088430bf4d3cf9998d5ca176b2f3788f6f68b7d0fcf0adab7b2a0"
+  },
+  {
+   "path": "audit/foar_figures/embed_cache_frozen/ae_all.json",
+   "role": "AE all sidecar {r2:0.9766030688749147, seed:0}",
+   "sha256": "9b883ddbb0e5d7c17cf91eaf3d011740e6184b72f82f0d570067b4342b44604d"
+  },
+  {
+   "path": "audit/foar_figures/embed_cache_frozen/vae_all.npy",
+   "role": "beta-VAE 2-D embedding, all 21 features",
+   "sha256": "7726d91703fe418de8a4789cc025475784cebff2f228c657f4e86aebf2dacff4"
+  },
+  {
+   "path": "audit/foar_figures/embed_cache_frozen/vae_all.json",
+   "role": "VAE all sidecar {r2:0.9591032491132079, seed:0}",
+   "sha256": "08d07d717b71893c85459bf376d39993201099d300cea56e2070b86d3f3fd8e5"
+  },
+  {
+   "path": "audit/foar_figures/embed_cache_frozen/ae_phys.npy",
+   "role": "AE 2-D embedding, 7 physical features",
+   "sha256": "eccb5c0a2d69a942707a3ef64f7d2b5845fdea802c3086de05384c067dafbfa0"
+  },
+  {
+   "path": "audit/foar_figures/embed_cache_frozen/ae_phys.json",
+   "role": "AE phys sidecar {r2:0.9867788820490238, seed:0}",
+   "sha256": "98664dbbf766b6c8fdac8282ef9349c7635cb023ef039899162042a84e5b057e"
+  },
+  {
+   "path": "audit/foar_figures/embed_cache_frozen/vae_phys.npy",
+   "role": "beta-VAE 2-D embedding, 7 physical features",
+   "sha256": "d6c5fde89d39e40fd43e1cae2f03832891dd19f76b52ebe924130e1cc41d228f"
+  },
+  {
+   "path": "audit/foar_figures/embed_cache_frozen/vae_phys.json",
+   "role": "VAE phys sidecar {r2:0.9734205634662496, seed:0}",
+   "sha256": "c149599be01c7e998ce5a0fff230119439389a6c8fe33d2aa9687ea2aa757377"
+  }
+ ],
+ "scripts_snapshot": {
+  "date": "2026-07-14 (schematic re-synced at commit 3e35bbc)",
+  "note": "final de-editorialized+title-less versions, copies in scripts_snapshot/. figs_nr10_schematic.py was refreshed on 2026-07-14 from c0ad6595 to 45b0fbe2: the earlier snapshot predated commit 3e35bbc (monochrome line-art restyle of Fig. 1-2), so it did not pin the published figures. figs_nr10.py and figs_nr10_embed.py were already current.",
+  "sha256": {
+   "figs_nr10.py": "efc0e3422cdbb3351973ba989c84367a5829f7728437ebcd50fa2779a3f96fe0",
+   "figs_nr10_embed.py": "2990123a15063dc72a07c1533dfcce328ed5a2ba00be3ae792e2321493888241",
+   "figs_nr10_schematic.py": "45b0fbe282f9709e577ea65c00de15ee5cee26eff011365e996288ba546b88d0"
+  }
+ }
+}
