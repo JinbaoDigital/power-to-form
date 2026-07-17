@@ -3,8 +3,6 @@ __pycache__/
 .DS_Store
 .venv/
 # generated at runtime
-archive_v5_5district/data/synthetic/demo/
-archive_v5_5district/experiments/out/
 paper/figs_web/
 engine/out/cake_figs/_embed_cache/
 # --- release policy: raw Baidu-derived geometry is NEVER committed ---

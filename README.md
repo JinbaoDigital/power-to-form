@@ -32,7 +32,7 @@ layers, and the reviewer's figure-by-figure recomputation path.
 ## What this repo carries
 
 ```
-reproduce.py            --verify (72 checks) - --run (needs the licensed caches) - --demo
+reproduce.py            --verify (72 checks) - --run (needs the licensed caches)
 audit_release.py        runs the pinned verify_cake_nr10.py and skips what the release cannot ship
 VALIDATION.md           the three validation layers + figure -> script -> input -> command table
 engine/                 the instrument
@@ -58,7 +58,6 @@ engine/                 the instrument
                           embed_cache_frozen/ (the frozen AE / beta-VAE latent coordinates)
 figures/                  the nine PNGs of the published Fig. 1-7
 paper/                    the manuscript build chain (the manuscript body is NOT here, see below)
-archive_v5_5district/     the previous generation, kept whole (see "Two generations")
 ```
 
 Every artefact of the **eight current sites** above is a **derived measurement**: metrics,
@@ -66,14 +65,6 @@ fingerprints, shares, ledgers, skylines, reachability grids, embedding statistic
 coordinates. None of them contains a coordinate, a footprint or an image tile: the eight
 `data/<slug>/site.yaml` carry name, slug, area and count and no bounding box, and no parquet,
 shapefile, viewer or screenshot exists anywhere in the tree or in any commit of its history.
-
-**The archive is the exception, and a disclosed one.** `archive_v5_5district/` is the previous
-release kept whole. Its five `engine/data/<slug>/site.yaml` still carry `bounds_lonlat`, the
-**lon/lat bounding box of the jiedao** each site clips - a sub-district extent, four numbers, not
-per-building geometry - and `archive_v5_5district/figures/figB3_figure_ground_compare.png` is a
-published figure-ground plate, that is, a raster depiction of real footprints. Both have been public
-since the first release (commit `c6ceb6d`) and are left untouched so that the earlier paper stays
-reproducible. The current generation carries neither.
 
 ## What this repo deliberately does not carry, and why
 
@@ -97,20 +88,6 @@ every column, but it reads the licensed upstream Shanghai compilation and is the
 reproducible from this repository**. Nothing in the verification path reads it, or any parquet:
 `reproduce.py --verify` opens only JSON and CSV, and its first check asserts that no `.parquet` file
 exists anywhere in the tree.
-
-## Two generations, two papers
-
-This repository has been through one previous release, and nothing from it was deleted.
-
-| Generation | Where | Paper |
-|---|---|---|
-| **v5, five districts** (Lujiazui, Caoyang, Laoximen, Dapuqiao, Yuyuan; four regimes as operator recipes; exp1-exp15; the old Fig. 3-14) | `archive_v5_5district/` - self-contained, still runs: `python archive_v5_5district/reproduce.py --verify` | *Power-to-Form: a stakeholder-power shape grammar* (the earlier five-district submission) |
-| **current, eight sites** (adds Nanjingxi, Pengpu, Zhangjiang; the cake transform, reachability, the gamma envelope, the E-series embedding; Fig. 1-7) | the repository root | **Reading the Found City through Stakeholder Power: An Auditable Parametric Instrument** |
-
-The two generations share a substrate but not a run: the five sites the new run inherits are held to
-the old numbers by a **frozen regression** (1748 numeric leaves, deviation 0.000e+00), so the
-extension provably did not move the earlier paper's results. `archive_v5_5district/` keeps its own
-engine, experiments, results and figures, so both papers remain reproducible from one checkout.
 
 ## The reviewer's path
 
@@ -141,8 +118,8 @@ Then read [`VALIDATION.md`](VALIDATION.md) for the figure -> script -> input -> 
 To change what power means, edit `engine/config/scenarios.yaml` (targets, weakness weights, the gamma
 envelope) or `engine/config/stakeholder_lookup.yaml` (the land-use -> holder cascade) and re-run. A
 new kind of power is a text edit, not a code change. Re-running on the eight real sites needs the
-caches; `python reproduce.py --demo` runs the engine end to end on a synthetic district with no data
-at all.
+licensed caches; without them, every published number is still fully auditable with `python
+reproduce.py --verify`, which reads only the frozen derived artefacts.
 
 ## Provenance and licensing
 

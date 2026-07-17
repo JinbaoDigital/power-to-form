@@ -27,12 +27,3 @@ references:
         given-names: Bin
     year: 2025
     doi: 10.1016/j.scib.2025.07.006
-  - type: software
-    title: "Power-to-Form: a stakeholder-power shape grammar (reproducibility package, five districts)"
-    notes: "The previous generation of this package, kept whole in archive_v5_5district/."
-    authors:
-      - family-names: Zhong
-        given-names: Jinbao
-      - family-names: Hou
-        given-names: June-Hao
-    year: 2026

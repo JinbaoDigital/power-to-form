@@ -8,8 +8,6 @@ reproduce.py - one entry point for the auditable parametric instrument.
                                  lists what is checked and what ships unchecked.
   python reproduce.py --run      recompute the artefacts from the per-site caches. The caches are
                                  Baidu-derived geometry and are NOT redistributed; see README.md.
-  python reproduce.py --demo     run the v5 engine on a synthetic district (delegates to the
-                                 archived 5-district package; no data needed).
 
 This repo ships DERIVED measurements + code, never raw geometry. --verify reads only
 JSON/CSV/PNG artefacts: it hard-codes the EXPECTED value published in the paper, RECOMPUTES the
@@ -24,7 +22,6 @@ ENG = ROOT / "engine"
 OUT = ENG / "out" / "cake"
 FIGS = ENG / "out" / "cake_figs"
 AUDIT = ENG / "audit" / "foar_figures"
-ARCHIVE = ROOT / "archive_v5_5district"
 
 SITES = ["lujiazui", "nanjingxi", "caoyang", "pengpu", "laoximen", "yuyuan", "dapuqiao", "zhangjiang"]
 FROZEN5 = ["lujiazui", "caoyang", "laoximen", "dapuqiao", "yuyuan"]
@@ -410,7 +407,7 @@ def verify():
     return 1 if _fails else 0
 
 
-# =================================================================== run / demo
+# =================================================================== run
 def run():
     missing = [s for s in SITES if not (ENG / "data" / s / "buildings.parquet").exists()]
     if missing:
@@ -435,27 +432,15 @@ def run():
     return subprocess.call([sys.executable, str(ENG / "run_cake_all.py"), "all"], cwd=str(ENG))
 
 
-def demo():
-    p = ARCHIVE / "reproduce.py"
-    if not p.exists():
-        sys.exit("archived demo not found: %s" % p)
-    print("the synthetic-district demo belongs to the archived 5-district generation; delegating to")
-    print("  %s --demo\n" % p)
-    return subprocess.call([sys.executable, str(p), "--demo"])
-
-
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--verify", action="store_true",
                     help="recompute the published numbers from engine/out/ (72 checks)")
     ap.add_argument("--run", action="store_true", help="recompute the artefacts (needs the licensed caches)")
-    ap.add_argument("--demo", action="store_true", help="run the engine on a synthetic district")
     a = ap.parse_args()
     if a.verify:
         sys.exit(verify())
     elif a.run:
         sys.exit(run())
-    elif a.demo:
-        sys.exit(demo())
     else:
         ap.print_help()
